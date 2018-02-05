@@ -54,6 +54,21 @@ public class ParserDefaultVisitor implements ParserVisitor{
   public Object visit(ASTRealBasicExpr node, Object data){
     return defaultVisit(node, data);
   }
+  public Object visit(ASTTableExpr node, Object data){
+    return defaultVisit(node, data);
+  }
+  public Object visit(ASTTableConcatExpr node, Object data){
+    return defaultVisit(node, data);
+  }
+  public Object visit(ASTTableRepetitionExpr node, Object data){
+    return defaultVisit(node, data);
+  }
+  public Object visit(ASTTableInversionExpression node, Object data){
+    return defaultVisit(node, data);
+  }
+  public Object visit(ASTTableBasicExpression node, Object data){
+    return defaultVisit(node, data);
+  }
   public Object visit(ASTIdentifier node, Object data){
     return defaultVisit(node, data);
   }
@@ -64,4 +79,4 @@ public class ParserDefaultVisitor implements ParserVisitor{
     return defaultVisit(node, data);
   }
 }
-/* JavaCC - OriginalChecksum=0b10e64315b392a9a43a4fab668a4676 (do not edit this line) */
+/* JavaCC - OriginalChecksum=4753c6742d80c3e5e8ced27b35c746e9 (do not edit this line) */

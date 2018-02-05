@@ -18,9 +18,14 @@ public interface ParserTreeConstants
   public int JJTREALMULTEXPR = 12;
   public int JJTREALNEGEXPR = 13;
   public int JJTREALBASICEXPR = 14;
-  public int JJTIDENTIFIER = 15;
-  public int JJTINTVALUE = 16;
-  public int JJTREALVALUE = 17;
+  public int JJTTABLEEXPR = 15;
+  public int JJTTABLECONCATEXPR = 16;
+  public int JJTTABLEREPETITIONEXPR = 17;
+  public int JJTTABLEINVERSIONEXPRESSION = 18;
+  public int JJTTABLEBASICEXPRESSION = 19;
+  public int JJTIDENTIFIER = 20;
+  public int JJTINTVALUE = 21;
+  public int JJTREALVALUE = 22;
 
 
   public String[] jjtNodeName = {
@@ -39,9 +44,14 @@ public interface ParserTreeConstants
     "RealMultExpr",
     "RealNegExpr",
     "RealBasicExpr",
+    "TableExpr",
+    "TableConcatExpr",
+    "TableRepetitionExpr",
+    "TableInversionExpression",
+    "TableBasicExpression",
     "Identifier",
     "IntValue",
     "RealValue",
   };
 }
-/* JavaCC - OriginalChecksum=d848871c7e46de30b63b498ced37ccb5 (do not edit this line) */
+/* JavaCC - OriginalChecksum=879ebddf28b7f8abb5fd447fcb04fb0f (do not edit this line) */

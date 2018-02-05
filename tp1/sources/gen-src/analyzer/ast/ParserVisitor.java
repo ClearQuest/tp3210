@@ -19,8 +19,13 @@ public interface ParserVisitor
   public Object visit(ASTRealMultExpr node, Object data);
   public Object visit(ASTRealNegExpr node, Object data);
   public Object visit(ASTRealBasicExpr node, Object data);
+  public Object visit(ASTTableExpr node, Object data);
+  public Object visit(ASTTableConcatExpr node, Object data);
+  public Object visit(ASTTableRepetitionExpr node, Object data);
+  public Object visit(ASTTableInversionExpression node, Object data);
+  public Object visit(ASTTableBasicExpression node, Object data);
   public Object visit(ASTIdentifier node, Object data);
   public Object visit(ASTIntValue node, Object data);
   public Object visit(ASTRealValue node, Object data);
 }
-/* JavaCC - OriginalChecksum=ec7e0846922d69cadf390702e29e3287 (do not edit this line) */
+/* JavaCC - OriginalChecksum=4e4cde52630153b42e21fc6060badbde (do not edit this line) */

@@ -59,53 +59,63 @@ public interface ParserConstants {
   /** RegularExpression Id. */
   int EQUALEQUAL = 29;
   /** RegularExpression Id. */
-  int PLUS = 30;
+  int SPACE = 30;
   /** RegularExpression Id. */
-  int MINUS = 31;
+  int PLUS = 31;
   /** RegularExpression Id. */
-  int FOIS = 32;
+  int MINUS = 32;
   /** RegularExpression Id. */
-  int DIV = 33;
+  int FOIS = 33;
   /** RegularExpression Id. */
-  int EQUAL = 34;
+  int DIV = 34;
   /** RegularExpression Id. */
-  int LPAREN = 35;
+  int EQUAL = 35;
   /** RegularExpression Id. */
-  int RPAREN = 36;
+  int LPAREN = 36;
   /** RegularExpression Id. */
-  int LACC = 37;
+  int RPAREN = 37;
   /** RegularExpression Id. */
-  int RACC = 38;
+  int LACC = 38;
   /** RegularExpression Id. */
-  int COLON = 39;
+  int RACC = 39;
   /** RegularExpression Id. */
-  int SEMICOLON = 40;
+  int COLON = 40;
   /** RegularExpression Id. */
-  int COMMA = 41;
+  int SEMICOLON = 41;
   /** RegularExpression Id. */
-  int EQUALR = 42;
+  int COMMA = 42;
   /** RegularExpression Id. */
-  int EQUALT = 43;
+  int PIPE = 43;
   /** RegularExpression Id. */
-  int PLUSR = 44;
+  int SHARP = 44;
   /** RegularExpression Id. */
-  int MINUSR = 45;
+  int TILD = 45;
   /** RegularExpression Id. */
-  int FOISR = 46;
+  int EQUALR = 46;
   /** RegularExpression Id. */
-  int DIVR = 47;
+  int EQUALT = 47;
   /** RegularExpression Id. */
-  int IDENTIFIER = 48;
+  int PLUSR = 48;
   /** RegularExpression Id. */
-  int LETTER = 49;
+  int MINUSR = 49;
   /** RegularExpression Id. */
-  int DIGIT = 50;
+  int FOISR = 50;
   /** RegularExpression Id. */
-  int INTEGER = 51;
+  int DIVR = 51;
   /** RegularExpression Id. */
-  int REAL = 52;
+  int IDENTIFIER = 52;
   /** RegularExpression Id. */
-  int EXPONENT = 53;
+  int LETTER = 53;
+  /** RegularExpression Id. */
+  int DIGIT = 54;
+  /** RegularExpression Id. */
+  int INTEGER = 55;
+  /** RegularExpression Id. */
+  int REAL = 56;
+  /** RegularExpression Id. */
+  int EXPONENT = 57;
+  /** RegularExpression Id. */
+  int ANY = 58;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -148,6 +158,7 @@ public interface ParserConstants {
     "\">=\"",
     "\"!=\"",
     "\"==\"",
+    "\" \"",
     "\"+\"",
     "\"-\"",
     "\"*\"",
@@ -160,6 +171,9 @@ public interface ParserConstants {
     "\":\"",
     "\";\"",
     "\",\"",
+    "\"|\"",
+    "\"#\"",
+    "\"~\"",
     "\"=.\"",
     "\"=*\"",
     "\"+.\"",
@@ -172,6 +186,7 @@ public interface ParserConstants {
     "<INTEGER>",
     "<REAL>",
     "<EXPONENT>",
+    "<ANY>",
   };
 
 }
