@@ -271,16 +271,11 @@ void RealBasicExpr() : {}
 /////////////////////////////////////////////////////////////////////////////////////////////////
 void TableExpr() : {}
 {
-//RealMultExpr() (LOOKAHEAD(2)
-//          (t = <PLUSR> | t = <MINUSR>) RealMultExpr()
-//      )*
-
     TableConcatExpr()
 }
 
 void TableConcatExpr() : { Token t;}
 {
-
     TableRepetitionExpr() (
         t = <PIPE>  TableRepetitionExpr()
     )*
@@ -291,7 +286,7 @@ void TableRepetitionExpr() : { Token t;}
 
     TableInversionExpression() (
         t = <SHARP> TableInversionExpression()
-    )*
+    )
 }
 
 
