@@ -96,14 +96,15 @@ TOKEN :
 	<ASSIGN: < EQUAL > | < EQUALR > | < EQUALT > > |
 	<COMPARE: < LESS > | < LESSEQUAL > | < GREAT > | <GREATEQUAL > | < DIFF > | < EQUALEQUAL > > |
 
-    < #CROOUVRANT: "[" > |
-	< #CROFERMANT: "]" > |
+    < CROOUVRANT: "[" > |
+	< CROFERMANT: "]" > |
 	< #LESS: "<" > |
 	< #LESSEQUAL: "<=" > |
 	< #GREAT: ">" > |
 	< #GREATEQUAL: ">=" > |
 	< #DIFF: "!=" > |
 	< #EQUALEQUAL: "==" > |
+	< #SPACE: " " > |
 
 	< PLUS: "+" > |
 	< MINUS: "-" > |
@@ -119,10 +120,13 @@ TOKEN :
 	< COLON: ":" > |
 	< SEMICOLON: ";" > |
 	< COMMA: "," > |
+	< PIPE: "|"> |
+	< SHARP: "#"> |
+	< TILD: "~"> |
 
 
 	< #EQUALR: "=." > |
-	< EQUALT: "=*" > |
+	< #EQUALT: "=*" > |
 	//Reel
 	< PLUSR: "+." > |
     < MINUSR: "-." > |
@@ -144,12 +148,11 @@ TOKEN :
 	// // Caution! Allows numbers such as "0000.23"
 	< REAL: (<INTEGER>)+ "." (["0"-"9"])+ (<EXPONENT>)? |
 			  (<INTEGER>)+ <EXPONENT> > |
-	< #EXPONENT: ["e","E"] (["+","-"])? (["0"-"9"])+ >
+	< #EXPONENT: ["e","E"] (["+","-"])? (["0"-"9"])+ > |
+	<#ANY:(<IDENTIFIER>|<INTEGER>|<REAL>)>
+	//<TABLE: (<CROOUVRANT>) + <ANY> (<COMMA> <SPACE><ANY>)* (<CROFERMANT>)>
+
 }
-
-
-
-
 
 
 
@@ -265,8 +268,47 @@ void RealBasicExpr() : {}
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+void TableExpr() : {}
+{
+    TableConcatExpr()
+}
+
+void TableConcatExpr() : { Token t;}
+{
+
+    TableRepetitionExpr() (
+        t = <PIPE>  TableRepetitionExpr()
+    )*
+}
+
+void TableRepetitionExpr() : { Token t;}
+{
+
+    TableInversionExpression() (
+        t = <SHARP> TableInversionExpression() //mult TOCHANGE
+
+    )*
+}
 
 
+void TableInversionExpression() : {} //was neg
+{
+
+	<TILD> IntBasicExpr()|TableBasicExpression()
+}
+
+void TableBasicExpression() : {}
+{
+	LOOKAHEAD(2) Identifier()|
+	RealValue() |
+	LOOKAHEAD(2)<CROOUVRANT> Expr() <CROFERMANT>
+
+}
+//<TABLE: (<CROOUVRANT>) + <ANY> (<COMMA> <SPACE><ANY>)* (<CROFERMANT>)>
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
 void Identifier() : { Token t;}
 {
 	t = <IDENTIFIER> {jjtThis.setValue(t.image);}
@@ -283,3 +325,8 @@ void RealValue() : { Token t;}
 	t = <REAL> {jjtThis.setValue(Double.parseDouble(t.image));}
 }
 
+
+//void TableValue() : { Token t;}
+//{
+//	t = <TABLE> {jjtThis.equals(t.image);}
+//}
