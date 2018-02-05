@@ -104,7 +104,7 @@ TOKEN :
 	< #GREATEQUAL: ">=" > |
 	< #DIFF: "!=" > |
 	< #EQUALEQUAL: "==" > |
-	< #SPACE: " " > |
+	//< SPACE: " " > |
 
 	< PLUS: "+" > |
 	< MINUS: "-" > |
@@ -148,8 +148,8 @@ TOKEN :
 	// // Caution! Allows numbers such as "0000.23"
 	< REAL: (<INTEGER>)+ "." (["0"-"9"])+ (<EXPONENT>)? |
 			  (<INTEGER>)+ <EXPONENT> > |
-	< #EXPONENT: ["e","E"] (["+","-"])? (["0"-"9"])+ > |
-	<#ANY:(<IDENTIFIER>|<INTEGER>|<REAL>)>
+	< #EXPONENT: ["e","E"] (["+","-"])? (["0"-"9"])+ >
+	//<ANY:(<IDENTIFIER>|<INTEGER>|<REAL>)>
 	//<TABLE: (<CROOUVRANT>) + <ANY> (<COMMA> <SPACE><ANY>)* (<CROFERMANT>)>
 
 }
@@ -181,7 +181,7 @@ void AssignStmt() : { Token t;}
 	(
             Identifier() <ASSIGN>
 
-    	) Expr()
+    	) (Expr() | TableExpr())
 }
 
 void Expr() : {}
@@ -271,9 +271,7 @@ void RealBasicExpr() : {}
 /////////////////////////////////////////////////////////////////////////////////////////////////
 void TableExpr() : {}
 {
-//TableConcatExpr() (LOOKAHEAD(2)
-         //  (t = <PLUSR> | t = <MINUSR>) TableConcatExpr()
-       //)*
+
     TableConcatExpr()
 }
 
@@ -303,12 +301,9 @@ void TableInversionExpression() : {} //was neg
 
 void TableBasicExpression() : {}
 {
-	LOOKAHEAD(2) Identifier()|
-	RealValue() |
-	LOOKAHEAD(2)<CROOUVRANT> Expr() <CROFERMANT>
+	<CROOUVRANT> Expr() (<COMMA>Expr())*  <CROFERMANT>
 
 }
-//<TABLE: (<CROOUVRANT>) + <ANY> (<COMMA> <SPACE><ANY>)* (<CROFERMANT>)>
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
