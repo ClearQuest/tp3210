@@ -191,12 +191,9 @@ void AssignStmt() : {}
 }
 
 
-
-
-
 void Expr() : {}
 {
-    LOOKAHEAD(2)IntExpr()|
+    LOOKAHEAD(2) IntExpr()|
     LOOKAHEAD(2) RealExpr()|
     TableExpr()
 }
@@ -247,7 +244,9 @@ void IntBasicExpr() : {}
 ////////////////////////////////////////////////REAL////////////////////////////////////////
 void RealAssignStmt() : {}
 {
-    LOOKAHEAD(2) Identifier() <CROOUVRANT> IntExpr() <CROFERMANT> | Identifier() <ASSIGNR> RealExpr()
+    (
+        (LOOKAHEAD(2) Identifier() <CROOUVRANT> IntExpr() <CROFERMANT> | Identifier()) <ASSIGNR>
+    ) RealExpr()
 }
 
 void RealExpr() : {}
