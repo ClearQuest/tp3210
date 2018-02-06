@@ -93,7 +93,8 @@ TOKEN :
 // Operators
 TOKEN :
 {
-	<ASSIGN: < EQUAL > | < EQUALR > | < EQUALT > > |
+	<ASSIGN: < EQUAL > | < EQUALR > > |
+	<ASSIGNT: < EQUALT > > |
 	<COMPARE: < LESS > | < LESSEQUAL > | < GREAT > | <GREATEQUAL > | < DIFF > | < EQUALEQUAL > > |
 
     < CROOUVRANT: "[" > |
@@ -149,9 +150,6 @@ TOKEN :
 	< REAL: (<INTEGER>)+ "." (["0"-"9"])+ (<EXPONENT>)? |
 			  (<INTEGER>)+ <EXPONENT> > |
 	< #EXPONENT: ["e","E"] (["+","-"])? (["0"-"9"])+ >
-	//<ANY:(<IDENTIFIER>|<INTEGER>|<REAL>)>
-	//<TABLE: (<CROOUVRANT>) + <ANY> (<COMMA> <SPACE><ANY>)* (<CROFERMANT>)>
-
 }
 
 
@@ -173,24 +171,29 @@ void Block() : { }
 void Stmt() : { }
 {
 
-	AssignStmt() <SEMICOLON>
+	AssignStmt() <SEMICOLON> //FOR
 }
+
+
 
 void AssignStmt() : { Token t;}
 {
-	(
-            Identifier() <ASSIGN>
-
-    	) (Expr() | TableExpr())
+	LOOKAHEAD(2)( (
+	Identifier() <ASSIGN>
+    	) Expr())| AssignTableExpr()
 }
-
+void AssignTableExpr() : { Token t;}
+{
+	(
+	Identifier() <ASSIGNT>
+    	) TableExpr()
+}
 void Expr() : {}
 {
     LOOKAHEAD(2)IntExpr() | RealExpr()
 }
 
-// Support expressions entiers
-
+//////////////////////////////////////////////////INT////////////////////////////////////
 void IntExpr() : {}
 {
     IntAddExpr()
@@ -229,7 +232,7 @@ void IntBasicExpr() : {}
 }
 
 
-// Support expressions réels (b)
+////////////////////////////////////////////////REAL////////////////////////////////////////
 
 void RealExpr() : {}
 {
@@ -268,7 +271,7 @@ void RealBasicExpr() : {}
 
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////TABLE////////////////////////////////////////////////////////////////
 void TableExpr() : {}
 {
     TableConcatExpr()
@@ -277,16 +280,13 @@ void TableExpr() : {}
 void TableConcatExpr() : { Token t;}
 {
     TableRepetitionExpr() (
-        t = <PIPE>  TableRepetitionExpr()
+        <PIPE>  TableRepetitionExpr()
     )*
 }
 
 void TableRepetitionExpr() : { Token t;}
 {
-
-    TableInversionExpression() (
-        t = <SHARP> TableInversionExpression()
-    )
+    (LOOKAHEAD(2) IntExpr() t=<SHARP>)* TableInversionExpression()
 }
 
 
@@ -298,6 +298,7 @@ void TableInversionExpression() : {} //was neg
 
 void TableBasicExpression() : {}
 {
+   // Identifier()|
 	<CROOUVRANT> Expr() (<COMMA>Expr())*  <CROFERMANT>
 
 }
