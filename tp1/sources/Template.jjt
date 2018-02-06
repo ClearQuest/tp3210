@@ -80,6 +80,7 @@ TOKEN :
 	< ELSE: "else" > |
 	< WHILE: "while" > |
 	< FOR: "for" > |
+	< DO: "do" > |
 	< STRING: "string"> |
 	< INT: "int"> |
 	< FLOAT: "float" > |
@@ -93,7 +94,8 @@ TOKEN :
 // Operators
 TOKEN :
 {
-	<ASSIGN: < EQUAL > | < EQUALR > > |
+	<ASSIGN: < EQUAL > > |
+	<ASSIGNR: < EQUALR > > |
 	<ASSIGNT: < EQUALT > > |
 	<COMPARE: < LESS > | < LESSEQUAL > | < GREAT > | <GREATEQUAL > | < DIFF > | < EQUALEQUAL > > |
 
@@ -168,32 +170,43 @@ void Block() : { }
 	 ( Stmt() )*
 }
 
+
 void Stmt() : { }
 {
-
-	AssignStmt() <SEMICOLON> //FOR
+    AssignStmt() <SEMICOLON>
+    | ForStmt()
 }
 
-
-
-void AssignStmt() : { Token t;}
+void ForStmt() : {}
 {
-	LOOKAHEAD(2)( (
-	Identifier() <ASSIGN>
-    	) Expr())| AssignTableExpr()
+	<FOR> Identifier() <IN> TableExpr() <DO> <LACC> Block() <RACC>
 }
-void AssignTableExpr() : { Token t;}
+
+
+void AssignStmt() : {}
 {
-	(
-	Identifier() <ASSIGNT>
-    	) TableExpr()
+    LOOKAHEAD(2) IntAssignStmt() |
+    LOOKAHEAD(2) RealAssignStmt() |
+    TableauAssignStmt()
 }
+
+
+
+
+
 void Expr() : {}
 {
-    LOOKAHEAD(2)IntExpr() | RealExpr()
+    LOOKAHEAD(2)IntExpr()|
+    LOOKAHEAD(2) RealExpr()|
+    TableExpr()
 }
 
 //////////////////////////////////////////////////INT////////////////////////////////////
+void IntAssignStmt() : {}
+{
+    Identifier() <ASSIGN> IntExpr()
+}
+
 void IntExpr() : {}
 {
     IntAddExpr()
@@ -231,8 +244,11 @@ void IntBasicExpr() : {}
 
 }
 
-
 ////////////////////////////////////////////////REAL////////////////////////////////////////
+void RealAssignStmt() : {}
+{
+    LOOKAHEAD(2) Identifier() <CROOUVRANT> IntExpr() <CROFERMANT> | Identifier() <ASSIGNR> RealExpr()
+}
 
 void RealExpr() : {}
 {
@@ -254,7 +270,6 @@ void RealMultExpr() : { Token t;}
     )*
 }
 
-
 void RealNegExpr() : {}
 {
 	(
@@ -265,13 +280,19 @@ void RealNegExpr() : {}
 
 void RealBasicExpr() : {}
 {
-	LOOKAHEAD(2) Identifier()|
+	LOOKAHEAD(2) TableBasicExpression() <CROOUVRANT> IntExpr() <CROFERMANT>|
+	Identifier()|
 	RealValue() |
 	LOOKAHEAD(2)<LPAREN> RealExpr() <RPAREN>
 
 }
 
 /////////////////////////////////TABLE////////////////////////////////////////////////////////////////
+void TableauAssignStmt() : {}
+{
+    Identifier() <ASSIGNT> TableExpr()
+}
+
 void TableExpr() : {}
 {
     TableConcatExpr()
@@ -289,20 +310,18 @@ void TableRepetitionExpr() : { Token t;}
     (LOOKAHEAD(2) IntExpr() t=<SHARP>)* TableInversionExpression()
 }
 
-
 void TableInversionExpression() : {} //was neg
 {
-
 	(<TILD> TableBasicExpression()) | TableBasicExpression()
 }
 
 void TableBasicExpression() : {}
 {
-   // Identifier()|
-	<CROOUVRANT> Expr() (<COMMA>Expr())*  <CROFERMANT>
+    Identifier()|
+	<CROOUVRANT> RealExpr() (<COMMA>RealExpr())*  <CROFERMANT>|
+	<LPAREN> TableExpr()<RPAREN>
 
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 void Identifier() : { Token t;}
