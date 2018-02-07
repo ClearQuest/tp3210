@@ -211,11 +211,10 @@ void IntExpr() : {}
 
 void IntAddExpr() : { Token t;}
 {
-    IntMultExpr() (LOOKAHEAD(2)
+    IntMultExpr() (
         (t = <PLUS> | t = <MINUS>) IntMultExpr()
     )*
 }
-
 void IntMultExpr() : { Token t;}
 {
     IntNegExpr() (
