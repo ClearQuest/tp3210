@@ -1,0 +1,6 @@
+a = 4 + b;
+b = 0 + c;
+
+if (a * b + 0 - c ^ d > min) {
+    print(c * b + a);
+}

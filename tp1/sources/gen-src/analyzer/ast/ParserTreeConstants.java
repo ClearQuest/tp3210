@@ -6,44 +6,52 @@ public interface ParserTreeConstants
   public int JJTPROGRAM = 0;
   public int JJTBLOCK = 1;
   public int JJTSTMT = 2;
-  public int JJTASSIGNSTMT = 3;
-  public int JJTEXPR = 4;
-  public int JJTINTEXPR = 5;
-  public int JJTINTADDEXPR = 6;
-  public int JJTINTMULTEXPR = 7;
-  public int JJTINTNEGEXPR = 8;
-  public int JJTINTBASICEXPR = 9;
-  public int JJTREALEXPR = 10;
-  public int JJTREALADDEXPR = 11;
-  public int JJTREALMULTEXPR = 12;
-  public int JJTREALNEGEXPR = 13;
-  public int JJTREALBASICEXPR = 14;
-  public int JJTTABLEEXPR = 15;
-  public int JJTTABLECONCATEXPR = 16;
-  public int JJTTABLEREPETITIONEXPR = 17;
-  public int JJTTABLEINVERSIONEXPRESSION = 18;
-  public int JJTTABLEBASICEXPRESSION = 19;
-  public int JJTIDENTIFIER = 20;
-  public int JJTINTVALUE = 21;
-  public int JJTREALVALUE = 22;
+  public int JJTFORSTMT = 3;
+  public int JJTASSIGNSTMT = 4;
+  public int JJTEXPR = 5;
+  public int JJTINTASSIGNSTMT = 6;
+  public int JJTINTEXPR = 7;
+  public int JJTINTADDEXPR = 8;
+  public int JJTINTMULTEXPR = 9;
+  public int JJTINTNEGEXPR = 10;
+  public int JJTINTBASICEXPR = 11;
+  public int JJTREALASSIGNSTMT = 12;
+  public int JJTREALEXPR = 13;
+  public int JJTREALADDEXPR = 14;
+  public int JJTREALMULTEXPR = 15;
+  public int JJTREALNEGEXPR = 16;
+  public int JJTREALBASICEXPR = 17;
+  public int JJTTABLEAUASSIGNSTMT = 18;
+  public int JJTTABLEEXPR = 19;
+  public int JJTTABLECONCATEXPR = 20;
+  public int JJTTABLEREPETITIONEXPR = 21;
+  public int JJTTABLEINVERSIONEXPRESSION = 22;
+  public int JJTTABLEBASICEXPRESSION = 23;
+  public int JJTIDENTIFIER = 24;
+  public int JJTINTVALUE = 25;
+  public int JJTREALVALUE = 26;
 
 
   public String[] jjtNodeName = {
     "Program",
     "Block",
     "Stmt",
+    "ForStmt",
     "AssignStmt",
     "Expr",
+    "IntAssignStmt",
     "IntExpr",
     "IntAddExpr",
     "IntMultExpr",
     "IntNegExpr",
     "IntBasicExpr",
+    "RealAssignStmt",
     "RealExpr",
     "RealAddExpr",
     "RealMultExpr",
     "RealNegExpr",
     "RealBasicExpr",
+    "TableauAssignStmt",
     "TableExpr",
     "TableConcatExpr",
     "TableRepetitionExpr",
@@ -54,4 +62,4 @@ public interface ParserTreeConstants
     "RealValue",
   };
 }
-/* JavaCC - OriginalChecksum=879ebddf28b7f8abb5fd447fcb04fb0f (do not edit this line) */
+/* JavaCC - OriginalChecksum=42fc0773cf507db26351f75b9f5cde43 (do not edit this line) */

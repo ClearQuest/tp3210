@@ -25,97 +25,99 @@ public interface ParserConstants {
   /** RegularExpression Id. */
   int FOR = 12;
   /** RegularExpression Id. */
-  int STRING = 13;
+  int DO = 13;
   /** RegularExpression Id. */
-  int INT = 14;
+  int STRING = 14;
   /** RegularExpression Id. */
-  int FLOAT = 15;
+  int INT = 15;
   /** RegularExpression Id. */
-  int BOOL = 16;
+  int FLOAT = 16;
   /** RegularExpression Id. */
-  int PRINT = 17;
+  int BOOL = 17;
   /** RegularExpression Id. */
-  int INPUT = 18;
+  int PRINT = 18;
   /** RegularExpression Id. */
-  int IN = 19;
+  int INPUT = 19;
   /** RegularExpression Id. */
-  int ASSIGN = 20;
+  int IN = 20;
   /** RegularExpression Id. */
-  int COMPARE = 21;
+  int ASSIGN = 21;
   /** RegularExpression Id. */
-  int CROOUVRANT = 22;
+  int ASSIGNR = 22;
   /** RegularExpression Id. */
-  int CROFERMANT = 23;
+  int ASSIGNT = 23;
   /** RegularExpression Id. */
-  int LESS = 24;
+  int COMPARE = 24;
   /** RegularExpression Id. */
-  int LESSEQUAL = 25;
+  int CROOUVRANT = 25;
   /** RegularExpression Id. */
-  int GREAT = 26;
+  int CROFERMANT = 26;
   /** RegularExpression Id. */
-  int GREATEQUAL = 27;
+  int LESS = 27;
   /** RegularExpression Id. */
-  int DIFF = 28;
+  int LESSEQUAL = 28;
   /** RegularExpression Id. */
-  int EQUALEQUAL = 29;
+  int GREAT = 29;
   /** RegularExpression Id. */
-  int SPACE = 30;
+  int GREATEQUAL = 30;
   /** RegularExpression Id. */
-  int PLUS = 31;
+  int DIFF = 31;
   /** RegularExpression Id. */
-  int MINUS = 32;
+  int EQUALEQUAL = 32;
   /** RegularExpression Id. */
-  int FOIS = 33;
+  int PLUS = 33;
   /** RegularExpression Id. */
-  int DIV = 34;
+  int MINUS = 34;
   /** RegularExpression Id. */
-  int EQUAL = 35;
+  int FOIS = 35;
   /** RegularExpression Id. */
-  int LPAREN = 36;
+  int DIV = 36;
   /** RegularExpression Id. */
-  int RPAREN = 37;
+  int EQUAL = 37;
   /** RegularExpression Id. */
-  int LACC = 38;
+  int LPAREN = 38;
   /** RegularExpression Id. */
-  int RACC = 39;
+  int RPAREN = 39;
   /** RegularExpression Id. */
-  int COLON = 40;
+  int LACC = 40;
   /** RegularExpression Id. */
-  int SEMICOLON = 41;
+  int RACC = 41;
   /** RegularExpression Id. */
-  int COMMA = 42;
+  int COLON = 42;
   /** RegularExpression Id. */
-  int PIPE = 43;
+  int SEMICOLON = 43;
   /** RegularExpression Id. */
-  int SHARP = 44;
+  int COMMA = 44;
   /** RegularExpression Id. */
-  int TILD = 45;
+  int PIPE = 45;
   /** RegularExpression Id. */
-  int EQUALR = 46;
+  int SHARP = 46;
   /** RegularExpression Id. */
-  int EQUALT = 47;
+  int TILD = 47;
   /** RegularExpression Id. */
-  int PLUSR = 48;
+  int EQUALR = 48;
   /** RegularExpression Id. */
-  int MINUSR = 49;
+  int EQUALT = 49;
   /** RegularExpression Id. */
-  int FOISR = 50;
+  int PLUSR = 50;
   /** RegularExpression Id. */
-  int DIVR = 51;
+  int MINUSR = 51;
   /** RegularExpression Id. */
-  int IDENTIFIER = 52;
+  int FOISR = 52;
   /** RegularExpression Id. */
-  int LETTER = 53;
+  int DIVR = 53;
   /** RegularExpression Id. */
-  int DIGIT = 54;
+  int IDENTIFIER = 54;
   /** RegularExpression Id. */
-  int INTEGER = 55;
+  int LETTER = 55;
   /** RegularExpression Id. */
-  int REAL = 56;
+  int DIGIT = 56;
   /** RegularExpression Id. */
-  int EXPONENT = 57;
+  int INTEGER = 57;
   /** RegularExpression Id. */
-  int ANY = 58;
+  int REAL = 58;
+  /** RegularExpression Id. */
+  int EXPONENT = 59;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -141,6 +143,7 @@ public interface ParserConstants {
     "\"else\"",
     "\"while\"",
     "\"for\"",
+    "\"do\"",
     "\"string\"",
     "\"int\"",
     "\"float\"",
@@ -149,6 +152,8 @@ public interface ParserConstants {
     "\"input\"",
     "\"in\"",
     "<ASSIGN>",
+    "<ASSIGNR>",
+    "<ASSIGNT>",
     "<COMPARE>",
     "\"[\"",
     "\"]\"",
@@ -158,7 +163,6 @@ public interface ParserConstants {
     "\">=\"",
     "\"!=\"",
     "\"==\"",
-    "\" \"",
     "\"+\"",
     "\"-\"",
     "\"*\"",
@@ -186,7 +190,6 @@ public interface ParserConstants {
     "<INTEGER>",
     "<REAL>",
     "<EXPONENT>",
-    "<ANY>",
   };
 
 }

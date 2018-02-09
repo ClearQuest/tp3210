@@ -18,10 +18,16 @@ public class ParserDefaultVisitor implements ParserVisitor{
   public Object visit(ASTStmt node, Object data){
     return defaultVisit(node, data);
   }
+  public Object visit(ASTForStmt node, Object data){
+    return defaultVisit(node, data);
+  }
   public Object visit(ASTAssignStmt node, Object data){
     return defaultVisit(node, data);
   }
   public Object visit(ASTExpr node, Object data){
+    return defaultVisit(node, data);
+  }
+  public Object visit(ASTIntAssignStmt node, Object data){
     return defaultVisit(node, data);
   }
   public Object visit(ASTIntExpr node, Object data){
@@ -39,6 +45,9 @@ public class ParserDefaultVisitor implements ParserVisitor{
   public Object visit(ASTIntBasicExpr node, Object data){
     return defaultVisit(node, data);
   }
+  public Object visit(ASTRealAssignStmt node, Object data){
+    return defaultVisit(node, data);
+  }
   public Object visit(ASTRealExpr node, Object data){
     return defaultVisit(node, data);
   }
@@ -52,6 +61,9 @@ public class ParserDefaultVisitor implements ParserVisitor{
     return defaultVisit(node, data);
   }
   public Object visit(ASTRealBasicExpr node, Object data){
+    return defaultVisit(node, data);
+  }
+  public Object visit(ASTTableauAssignStmt node, Object data){
     return defaultVisit(node, data);
   }
   public Object visit(ASTTableExpr node, Object data){
@@ -79,4 +91,4 @@ public class ParserDefaultVisitor implements ParserVisitor{
     return defaultVisit(node, data);
   }
 }
-/* JavaCC - OriginalChecksum=4753c6742d80c3e5e8ced27b35c746e9 (do not edit this line) */
+/* JavaCC - OriginalChecksum=0964954948dc71dd2e91c4ac4f20b38e (do not edit this line) */

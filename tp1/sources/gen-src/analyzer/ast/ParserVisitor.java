@@ -7,18 +7,22 @@ public interface ParserVisitor
   public Object visit(ASTProgram node, Object data);
   public Object visit(ASTBlock node, Object data);
   public Object visit(ASTStmt node, Object data);
+  public Object visit(ASTForStmt node, Object data);
   public Object visit(ASTAssignStmt node, Object data);
   public Object visit(ASTExpr node, Object data);
+  public Object visit(ASTIntAssignStmt node, Object data);
   public Object visit(ASTIntExpr node, Object data);
   public Object visit(ASTIntAddExpr node, Object data);
   public Object visit(ASTIntMultExpr node, Object data);
   public Object visit(ASTIntNegExpr node, Object data);
   public Object visit(ASTIntBasicExpr node, Object data);
+  public Object visit(ASTRealAssignStmt node, Object data);
   public Object visit(ASTRealExpr node, Object data);
   public Object visit(ASTRealAddExpr node, Object data);
   public Object visit(ASTRealMultExpr node, Object data);
   public Object visit(ASTRealNegExpr node, Object data);
   public Object visit(ASTRealBasicExpr node, Object data);
+  public Object visit(ASTTableauAssignStmt node, Object data);
   public Object visit(ASTTableExpr node, Object data);
   public Object visit(ASTTableConcatExpr node, Object data);
   public Object visit(ASTTableRepetitionExpr node, Object data);
@@ -28,4 +32,4 @@ public interface ParserVisitor
   public Object visit(ASTIntValue node, Object data);
   public Object visit(ASTRealValue node, Object data);
 }
-/* JavaCC - OriginalChecksum=4e4cde52630153b42e21fc6060badbde (do not edit this line) */
+/* JavaCC - OriginalChecksum=73361ddac6b415ef164be2d0598f4d5e (do not edit this line) */

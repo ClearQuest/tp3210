@@ -1,0 +1,20 @@
+for (i = 0; i < 100; i += 1) {
+    for (j = 0; j < 20; j += 1) {
+        for (k = 0; k < 55; k += 5) {
+            print(i);
+        }
+    }
+}
+
+c = 100;
+if (a == 0) {
+    while (b != 0 && c > 10) {
+        c = c - b;
+    }
+}
+
+while (notFound) {
+    for (i = 0; i < size(var); i += 1) {
+        print(i);
+    }
+}
