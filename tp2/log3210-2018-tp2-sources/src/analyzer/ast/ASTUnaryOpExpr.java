@@ -24,15 +24,36 @@ class ASTUnaryOpExpr extends SimpleNode {
   }
 
     public ArrayList<String> reduce(){
-        ArrayList<String> s = new ArrayList<>();
+        ArrayList<String> negArray = new ArrayList<>();
         if(this.jjtGetChild(0) instanceof  ASTBasicExpr) {
             ASTBasicExpr temp = (ASTBasicExpr)this.jjtGetChild(0);
-            if (this.m_ops.size() % 2 == 0) return temp.reduce();
+            //positive
+            if (this.m_ops.size() % 2 == 0) {
+                return temp.reduce();
+            }
 
-            s.add("-");
-            s.addAll(temp.reduce());
+            //negative
+            negArray = temp.reduce();
+
+            String prev = "";
+            for( int i = 0; i<negArray.size();i++){
+                String negS = negArray.get(i);
+
+                if(negS.length() > 0) {
+                    if (i == 0 && negS.charAt(0) == '-'){
+                        negS = negS.substring(1);
+                    }
+                    else if(!negS.equals("-") && ! negS.equals("+") && ! negS.equals("*") && !prev.equals("*")){
+                        negS = "-" + negS;
+                    }
+                    negArray.set(i, negS);
+                }
+                prev = negS;
+            }
+
+            //s.addAll(temp.reduce());
         }
-        return s;
+        return negArray;
     }
 
   // PLB

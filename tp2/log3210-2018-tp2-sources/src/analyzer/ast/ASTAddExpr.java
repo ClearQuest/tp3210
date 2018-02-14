@@ -65,93 +65,55 @@ public class ASTAddExpr extends SimpleNode {
 
     @Override
     public ArrayList<String> reduce() {
-        int val = 0;
-        String op = "";
-        String stringOp = "";
+        ArrayList<String> leftArray =  new ArrayList<>(), rightArray  =  new ArrayList<>(), returnArray  =  new ArrayList<>();
+        boolean isLeftString = false, isLeftExpr = false,isRightExpr = false, isRightString = false;
+        int leftValue = 0, rightValue = 0;
 
-
-        for (int child = 0; child < this.jjtGetNumChildren(); child++) {
-
-            if (jjtGetChild(child) instanceof ASTMultExpr) {
-                ASTMultExpr tempNode = (ASTMultExpr)jjtGetChild(child);
-                ArrayList<String> currArray = tempNode.reduce();
-
-
-                for ( int inner = 0; inner < currArray.size(); inner ++){
-                    if (currArray.get(inner).equals("+"));
-
-
-
-
-
-
-                }
-
-
-
-                /*
-                if (op.equals("") && currArray.size() > 0) { // first item
-                    if (this.isStringInt(currArray.get(0))) {
-                        val = Integer.parseInt(currArray.get(0));
-                    } else {
-                        stringOp = currArray.get(0);
-                    }
-
-                }
-                if (op.equals("+")) {
-                    String temp = "";
-
-                    if (this.isStringInt(currArray.get(0))) {
-                        val += Integer.parseInt(currArray.get(0));
-                    }
-                    //else
-                    else if(currArray.get(0).length()>0){
-                        /*if (currArray.get(0).charAt(0) == '-') {
-
-                        }*/
-                        stringOp += op + currArray.get(0);
-                    }
-
-
-                }
-                if (op.equals("-")) {
-                    if (this.isStringInt(currArray.get(0))) {
-                        val -= Integer.parseInt(currArray.get(0));
-                    } else if(currArray.get(0).length()>0){
-                        //else if (currArray.get(0).charAt(0) == '-') {
-                        stringOp += op + currArray.get(0);
-                    }
-                }
-
-                if (m_ops.size() > child) {
-                    op = m_ops.get(child);//-, + ,""
-                }
-
-            }*/
+        if(this.jjtGetNumChildren() == 1){ // bubble up
+           ASTMultExpr tempNode = (ASTMultExpr)jjtGetChild(0);
+           return tempNode.reduce();
         }
-        if (val == 0 && stringOp.equals("")) {
-            int finalVal = val;
-            return new ArrayList<String>() {{
-                Integer.toString(finalVal);
-            }};
-        }
-        if(val!=0) {
 
-            String answer = Integer.toString(val);
-            if(stringOp.length()>0&& stringOp.charAt(0) != '+')
-                answer += "+";
-            answer += stringOp;
-            String finalAnswer = answer;
-            return new ArrayList<String>() {{
-                add(finalAnswer);
-            }};
+        ASTMultExpr tempNode = (ASTMultExpr)jjtGetChild(0);
+        leftArray =  tempNode.reduce();
+        tempNode = (ASTMultExpr)jjtGetChild(1);
+        rightArray = tempNode.reduce();
+
+        if(leftArray.size() == 1) {// int or string
+            if(!this.isStringInt(leftArray.get(0))){
+                leftValue =  Integer.parseInt(leftArray.get(0));
+            }
+            else isLeftString = true;
+        }else isLeftExpr = true;
+
+        if(rightArray.size() == 1) {// int or string
+            if(!this.isStringInt(rightArray.get(0))){
+                rightValue =  Integer.parseInt(rightArray.get(0));
+            }
+            else isRightString = true;
+        } else isRightExpr = true;
+
+
+        if(!isLeftExpr && !isLeftString){
+            if(!isRightExpr&&!isRightString){ // both are values
+                if(m_ops.get(1).equals("+"))
+                    returnArray.add(Integer.toString(rightValue + leftValue));
+                else returnArray.add(Integer.toString(leftValue - rightValue));
+
+            }else if( !isRightExpr) {//is a string value
+
+            }
+
+
         }
-        else{
-            String answer =  stringOp;
-            return new ArrayList<String>() {{
-                add(answer);
-            }};
-        }
+
+
+
+
+
+
+return returnArray;
+
 
 
 
