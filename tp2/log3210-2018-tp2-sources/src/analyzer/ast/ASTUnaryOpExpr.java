@@ -2,6 +2,7 @@
 /* JavaCCOptions:MULTI=true,NODE_USES_PARSER=false,VISITOR=true,TRACK_TOKENS=false,NODE_PREFIX=AST,NODE_EXTENDS=,NODE_FACTORY=,SUPPORT_CLASS_VISIBILITY_PUBLIC=true */
 package analyzer.ast;
 
+import java.util.ArrayList;
 import java.util.Vector; // PLB
 
 public
@@ -9,7 +10,7 @@ class ASTUnaryOpExpr extends SimpleNode {
   public ASTUnaryOpExpr(int id) {
     super(id);
   }
-
+  public ASTUnaryOpExpr(ASTUnaryOpExpr uOpExpr){super(uOpExpr.getId());}
   public ASTUnaryOpExpr(Parser p, int id) {
     super(p, id);
   }
@@ -21,6 +22,18 @@ class ASTUnaryOpExpr extends SimpleNode {
     return
     visitor.visit(this, data);
   }
+
+    public ArrayList<String> reduce(){
+        ArrayList<String> s = new ArrayList<>();
+        if(this.jjtGetChild(0) instanceof  ASTBasicExpr) {
+            ASTBasicExpr temp = (ASTBasicExpr)this.jjtGetChild(0);
+            if (this.m_ops.size() % 2 == 0) return temp.reduce();
+
+            s.add("-");
+            s.addAll(temp.reduce());
+        }
+        return s;
+    }
 
   // PLB
   private Vector<String> m_ops = new Vector<>();
