@@ -178,7 +178,10 @@ public class ASTAddExpr extends SimpleNode {
         else if (reducedValue == 0 && this.jjtGetNumChildren() != 1)
         {
             reducedArrayList.addAll(tempNonAdditionnableAL);
-            reducedArrayList.remove(0);
+            if(reducedArrayList.size()>0) {
+                reducedArrayList.remove(0);
+            }
+            else reducedArrayList.add("0");
         }
         else if (reducedValue == 0 && this.jjtGetNumChildren() == 1)
         {
