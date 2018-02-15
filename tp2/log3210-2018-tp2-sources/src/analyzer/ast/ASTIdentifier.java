@@ -8,8 +8,11 @@ public class ASTIdentifier extends SimpleNode {
   }
   public ASTIdentifier(){}
   public ASTIdentifier(ASTIdentifier identifier){
-      super(identifier.id);
-      this.m_value = identifier.m_value;
+    this.parser = identifier.parser;
+    this.id = identifier.id;
+    this.children = identifier.children;
+    this.parent = identifier.parent;
+    this.m_value = identifier.m_value;
   }
 
   public ASTIdentifier(Parser p, int id) {

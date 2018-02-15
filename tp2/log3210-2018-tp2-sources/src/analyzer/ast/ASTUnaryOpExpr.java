@@ -10,7 +10,14 @@ class ASTUnaryOpExpr extends SimpleNode {
   public ASTUnaryOpExpr(int id) {
     super(id);
   }
-  public ASTUnaryOpExpr(ASTUnaryOpExpr uOpExpr){super(uOpExpr.getId());}
+  public ASTUnaryOpExpr(ASTUnaryOpExpr uOpExpr){
+      this.parser = uOpExpr.parser;
+      this.children = uOpExpr.children;
+      this.id = uOpExpr.id;
+      this.parent = uOpExpr.parent;
+      this.value = uOpExpr.value;
+
+  }
   public ASTUnaryOpExpr(Parser p, int id) {
     super(p, id);
   }
@@ -27,9 +34,11 @@ class ASTUnaryOpExpr extends SimpleNode {
         ArrayList<String> negArray = new ArrayList<>();
         if(this.jjtGetChild(0) instanceof  ASTBasicExpr) {
             ASTBasicExpr temp = (ASTBasicExpr)this.jjtGetChild(0);
+            ArrayList<String> steve = temp.reduce();
+
             //positive
             if (this.m_ops.size() % 2 == 0) {
-                return temp.reduce();
+                return steve;
             }
 
             //negative

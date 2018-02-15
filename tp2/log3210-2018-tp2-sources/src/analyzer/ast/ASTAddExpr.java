@@ -9,11 +9,12 @@ public class ASTAddExpr extends SimpleNode {
     }
     public ASTAddExpr(){};
     public ASTAddExpr(ASTAddExpr addE){
-        super(addE.getId());
+        this.id = addE.id;
         this.parser = addE.parser;
         this.children = addE.children;
         this.m_ops = addE.m_ops;
         this.parent = addE.parent;
+        this.value = addE.value;
     }
     public ASTAddExpr(Parser p, int id) {
         super(p, id);
@@ -24,99 +25,6 @@ public class ASTAddExpr extends SimpleNode {
     public Object jjtAccept(ParserVisitor visitor, Object data) {
         return visitor.visit(this, data);
     }
-
-
-    /*public ArrayList<String> reduce(){
-        int val = 1;
-        ArrayList<String> identifiers = new ArrayList<>();
-        int countMinus = 0;
-        for (int  i = 0 ; i<this.jjtGetNumChildren(); i++) {
-
-            ArrayList<String> currArray = jjtGetChild(i).reduce();
-
-            for (int j = 0; j < currArray.size(); j++) {
-                String current = currArray.get(j);
-                if (this.isStringInt(current)) {
-                    val *= Integer.parseInt(current);
-                } else {
-                    if (current.charAt(0) == '-') {
-                        countMinus++; // remind val may be neg
-                        current.substring(1);
-                    }
-                    if (!current.equals(""))
-                        identifiers.add(current);
-                }
-            }
-        }
-        if(val < 0){
-            countMinus ++;
-            val *= -1;
-        }
-        ArrayList<String> ret = new ArrayList<>();
-        if (val!=0) {
-            if (countMinus%2 == 0)
-                ret.add("-");
-            ret.add(Integer.toString(val));
-            ret.addAll(identifiers);
-        }
-        else ret.add("0");
-        return ret;
-    }*/
-
-    /*
-    @Override
-    public ArrayList<String> reduce() {
-        ArrayList<String> leftArray =  new ArrayList<>(), rightArray  =  new ArrayList<>(), returnArray  =  new ArrayList<>();
-        boolean isLeftString = false, isLeftExpr = false,isRightExpr = false, isRightString = false;
-        int leftValue = 0, rightValue = 0;
-
-        // Si il a juste un enfant, c'est un Identifier
-        if(this.jjtGetNumChildren() == 1){ // bubble up
-           ASTMultExpr tempNode = (ASTMultExpr)jjtGetChild(0);
-           return tempNode.reduce();
-        }
-
-        ASTMultExpr tempNode = (ASTMultExpr)jjtGetChild(0);
-
-        leftArray =  tempNode.reduce();
-        tempNode = (ASTMultExpr)jjtGetChild(1);
-        rightArray = tempNode.reduce();
-
-        if(leftArray.size() == 1) {// int or string
-            if(this.isStringInt(leftArray.get(0))){
-                leftValue =  Integer.parseInt(leftArray.get(0));
-            }
-            else
-                isLeftString = true;
-        }
-        else
-            isLeftExpr = true;
-
-        if(rightArray.size() == 1) {// int or string
-            if(this.isStringInt(rightArray.get(0))){
-                rightValue =  Integer.parseInt(rightArray.get(0));
-            }
-            else
-                isRightString = true;
-        }
-        else
-            isRightExpr = true;
-
-        if(!isLeftExpr && !isLeftString){
-            if(!isRightExpr&&!isRightString){ // both are values
-                if(m_ops.get(1).equals("+"))
-                    returnArray.add(Integer.toString(rightValue + leftValue));
-                else
-                    returnArray.add(Integer.toString(leftValue - rightValue));
-
-            }
-            else if( !isRightExpr) {//is a string value
-
-            }
-        }
-        return returnArray;
-    }
-    */
 
     @Override
     public ArrayList<String> reduce() {

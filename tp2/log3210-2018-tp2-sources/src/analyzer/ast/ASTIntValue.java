@@ -6,7 +6,13 @@ public class ASTIntValue extends SimpleNode {
   public ASTIntValue(int id) {
     super(id);
   }
-  public ASTIntValue(ASTIntValue iVal){super(iVal.getId());}
+  public ASTIntValue(ASTIntValue iVal){
+    this.parser = iVal.parser;
+    this.id = iVal.id;
+    this.children = iVal.children;
+    this.parent = iVal.parent;
+    this.m_value = iVal.m_value;
+  }
 
   public ASTIntValue(Parser p, int id) {
     super(p, id);

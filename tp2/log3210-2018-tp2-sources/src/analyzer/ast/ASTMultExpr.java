@@ -10,7 +10,13 @@ public class ASTMultExpr extends SimpleNode {
   public ASTMultExpr(int id) {
     super(id);
   }
-  public ASTMultExpr(ASTMultExpr mExpr){super(mExpr.getId());}
+  public ASTMultExpr(ASTMultExpr mExpr){
+      this.parser = mExpr.parser;
+      this.id = mExpr.id;
+      this.children = mExpr.children;
+      this.parent = mExpr.parent;
+      this.m_ops = mExpr.m_ops;
+  }
 
   public ASTMultExpr(Parser p, int id) {
     super(p, id);
@@ -37,7 +43,8 @@ public class ASTMultExpr extends SimpleNode {
 
         for (int i = 0; i < this.jjtGetNumChildren(); i++) {
             ASTUnaryOpExpr tempNode = (ASTUnaryOpExpr) this.jjtGetChild(i);
-            arrays.add(tempNode.reduce());
+            ArrayList<String> reducedUn = tempNode.reduce();
+            arrays.add(reducedUn);
             str.add(hasIdentifier(arrays.get(i)));
             isId.add(!(str.get(i).equals("")));
             if (!isId.get(i) && this.isStringInt(arrays.get(i).get(0))) { //get int values

@@ -9,8 +9,12 @@ class ASTBasicExpr extends SimpleNode {
   public ASTBasicExpr(int id) {
     super(id);
   }
-  public ASTBasicExpr(ASTBasicExpr bExpr){super(bExpr.getId());
-    this.parser = bExpr.parser;
+  public ASTBasicExpr(ASTBasicExpr bExpr){
+      this.children = bExpr.children;
+      this.id = bExpr.id;
+      this.parser = bExpr.parser;
+      this.parent = bExpr.parent;
+      this.value = bExpr.value;
   }
   public ASTBasicExpr(Parser p, int id) {
     super(p, id);

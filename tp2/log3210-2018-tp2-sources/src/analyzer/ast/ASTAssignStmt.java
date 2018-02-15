@@ -7,7 +7,13 @@ public class ASTAssignStmt extends SimpleNode {
   public ASTAssignStmt(int id) {
     super(id);
   }
-  public ASTAssignStmt(ASTAssignStmt aStmt){super (aStmt.id);}
+  public ASTAssignStmt(ASTAssignStmt aStmt){
+      this.parser = aStmt.parser;
+      this.id = aStmt.id;
+      this.children = aStmt.children;
+      this.parent = aStmt.parent;
+      this.value = aStmt.value;
+  }
   public ASTAssignStmt(Parser p, int id) {
     super(p, id);
   }
