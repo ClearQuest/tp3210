@@ -226,26 +226,38 @@ public class ASTAddExpr extends SimpleNode {
         */
 
         int reducedValue = 0;
-        for (int i = 0; i <= (tempAdditionnableAL.size()+1)/2; i+=2)
+        if(tempAdditionnableAL.size() > 2)
         {
-            int valueToAdd = 0;
-            if(this.isStringInt(tempAdditionnableAL.get(i+1))) {
-                valueToAdd = Integer.parseInt(tempAdditionnableAL.get(i + 1));
+            for (int i = 0; i <= (tempAdditionnableAL.size()+2)/2; i+=2)
+            {
+                int valueToAdd = 0;
+                if(this.isStringInt(tempAdditionnableAL.get(i+1))) {
+                    valueToAdd = Integer.parseInt(tempAdditionnableAL.get(i + 1));
 
-                if(tempAdditionnableAL.get(i) == "+")
-                {
-                    reducedValue += valueToAdd;
-                }
-                else if(tempAdditionnableAL.get(i) == "-")
-                {
-                    reducedValue -= valueToAdd;
-                }
-                else
-                {
-                    // Error
+                    if(tempAdditionnableAL.get(i) == "+")
+                    {
+                        reducedValue += valueToAdd;
+                    }
+                    else if(tempAdditionnableAL.get(i) == "-")
+                    {
+                        reducedValue -= valueToAdd;
+                    }
+                    else
+                    {
+                        // Error
+                    }
                 }
             }
         }
+        else if (tempAdditionnableAL.size() == 2)
+        {
+            reducedValue = Integer.parseInt(tempAdditionnableAL.get(1));
+        }
+        else
+        {
+            // Error
+        }
+
 
         ArrayList<String> reducedArrayList  =  new ArrayList<>();
         reducedArrayList.add(Integer.toString(reducedValue));

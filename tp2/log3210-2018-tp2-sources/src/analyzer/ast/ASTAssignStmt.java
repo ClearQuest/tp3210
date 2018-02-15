@@ -31,7 +31,10 @@ public ArrayList<String> reduce(){
         if(this.jjtGetChild(i) instanceof ASTAddExpr) {
             ASTAddExpr tempNode = new ASTAddExpr((ASTAddExpr)this.jjtGetChild(i));
             ArrayList<String> bob = tempNode.reduce();
-            String temp = bob.get(0);
+            String temp ="";
+            for(int j = 0; j<bob.size(); j++){
+                temp += bob.get(j);
+            }
             s.add(temp); //identifier
         }
         //s.addAll(this.jjtGetChild(1).reduce());
