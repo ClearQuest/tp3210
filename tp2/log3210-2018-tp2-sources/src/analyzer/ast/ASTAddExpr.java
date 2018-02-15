@@ -109,16 +109,16 @@ public class ASTAddExpr extends SimpleNode {
             }
             else
             {
-                for(int j = 1; j < (tempArrayList2.size()+1)/2; j+=2)
+                for(int j = 0; j <= (tempArrayList.size()+1)/2; j+=2)
                 {
-                    String value = tempArrayList2.get(j+1);
+                    String value = tempArrayList.get(j);
                     if(this.isStringInt(value))
                     {
-                        if(tempArrayList2.get(j) == "+")
+                        if(tempArrayList.get(j+1) == "+")
                         {
                             tempAdditionnableAL.add("+");
                         }
-                        else if(tempArrayList2.get(j) == "-")
+                        else if(tempArrayList.get(j+1) == "-")
                         {
                             tempAdditionnableAL.add("-");
                         }
