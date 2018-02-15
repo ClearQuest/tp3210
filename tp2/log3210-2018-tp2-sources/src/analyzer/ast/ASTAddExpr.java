@@ -182,7 +182,7 @@ public class ASTAddExpr extends SimpleNode {
             reducedArrayList.add(Integer.toString(reducedValue));
             reducedArrayList.addAll(tempNonAdditionnableAL);
         }
-        else if (reducedValue == 0 && this.jjtGetNumChildren() != 1)
+        else if (reducedValue == 0 && this.jjtGetNumChildren() > 1)
         {
             reducedArrayList.addAll(tempNonAdditionnableAL);
             if(reducedArrayList.size()>0) {
@@ -192,7 +192,12 @@ public class ASTAddExpr extends SimpleNode {
         }
         else if (reducedValue == 0 && this.jjtGetNumChildren() == 1)
         {
-            reducedArrayList.add("0");
+            reducedArrayList.addAll(tempNonAdditionnableAL);
+            if(reducedArrayList.size()>0) {
+                reducedArrayList.remove(0);
+            }
+            else
+                reducedArrayList.add("0");
         }
         else
         {
