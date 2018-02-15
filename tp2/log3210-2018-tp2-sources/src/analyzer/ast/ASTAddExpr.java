@@ -55,18 +55,25 @@ public class ASTAddExpr extends SimpleNode {
 
         else
         {
-            for(int i = 1; i < (tempArrayList2.size()+1)/2; i+=2)
+            for(int i = 0; i <= (tempArrayList2.size()+1)/2; i+=2)
             {
-                String value = tempArrayList2.get(i+1);
+                String value = tempArrayList2.get(i);
                 if(this.isStringInt(value))
                 {
-                    if(tempArrayList2.get(i) == "+")
+                    if(i==0)
                     {
                         tempAdditionnableAL.add("+");
                     }
-                    else if(tempArrayList2.get(i) == "-")
+                    else
                     {
-                        tempAdditionnableAL.add("-");
+                        if(tempArrayList2.get(i+1) == "+")
+                        {
+                            tempAdditionnableAL.add("+");
+                        }
+                        else if(tempArrayList2.get(i+1) == "-")
+                        {
+                            tempAdditionnableAL.add("-");
+                        }
                     }
                     tempAdditionnableAL.add(value);
                 }
