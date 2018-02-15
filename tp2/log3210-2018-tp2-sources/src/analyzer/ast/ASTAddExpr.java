@@ -130,7 +130,8 @@ public class ASTAddExpr extends SimpleNode {
         ArrayList<String> tempArrayList2 = new ArrayList<>();
         tempArrayList2 = tempNode2.reduce();
 
-        if(tempArrayList2.size() == 1) {// int or string
+        if(tempArrayList2.size() == 1)
+        {
             String value = tempArrayList2.get(0);
             if(this.isStringInt(value))
             {
