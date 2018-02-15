@@ -47,7 +47,7 @@ public class ASTMultExpr extends SimpleNode {
 
         }
         if (this.jjtGetNumChildren() == 1) { // only left exists
-            returnValues.addAll(arrays.get(1)); //only want to bubble up regular array. could be eg (7+a) ready to go with +5
+            returnValues.addAll(arrays.get(0)); //only want to bubble up regular array. could be eg (7+a) ready to go with +5
             return returnValues;
         }
         int totalValue = 1;
