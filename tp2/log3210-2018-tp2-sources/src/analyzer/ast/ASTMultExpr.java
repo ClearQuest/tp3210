@@ -29,7 +29,7 @@ public class ASTMultExpr extends SimpleNode {
 
         //int leftVal = 1, rightVal = 1;
       //  ArrayList<String> leftArray, rightArray = new ArrayList<>(), stringValues = new ArrayList<>();
-        ArrayList<String> returnValues = new ArrayList<>()
+        ArrayList<String> returnValues = new ArrayList<>();
         ArrayList<ArrayList<String>> arrays = new ArrayList<>();
         ArrayList<String> str = new ArrayList<String>();
         ArrayList<Boolean> isId = new ArrayList<Boolean>();
