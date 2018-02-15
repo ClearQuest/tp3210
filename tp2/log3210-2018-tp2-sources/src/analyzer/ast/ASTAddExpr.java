@@ -226,7 +226,7 @@ public class ASTAddExpr extends SimpleNode {
         */
 
         int reducedValue = 0;
-        for (int i = 0; i <= (tempAdditionnableAL.size()+2)/2; i+=2)
+        for (int i = 0; i <= (tempAdditionnableAL.size()+1)/2; i+=2)
         {
             int valueToAdd = 0;
             if(this.isStringInt(tempAdditionnableAL.get(i+1))) {
