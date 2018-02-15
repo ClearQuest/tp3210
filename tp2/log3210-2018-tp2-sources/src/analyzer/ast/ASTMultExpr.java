@@ -40,8 +40,8 @@ public class ASTMultExpr extends SimpleNode {
             arrays.add(tempNode.reduce());
             str.add(hasIdentifier(arrays.get(i)));
             isId.add(!(str.get(i).equals("")));
-            if (!isId.get(0) && this.isStringInt(arrays.get(0).get(0))) { //get int values
-                val.add(Integer.parseInt(arrays.get(0).get(0)));
+            if (!isId.get(i) && this.isStringInt(arrays.get(i).get(0))) { //get int values
+                val.add(Integer.parseInt(arrays.get(i).get(0)));
             } else val.add(1);
 
         }
