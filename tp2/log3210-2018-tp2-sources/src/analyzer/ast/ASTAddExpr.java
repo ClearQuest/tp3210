@@ -260,8 +260,16 @@ public class ASTAddExpr extends SimpleNode {
 
 
         ArrayList<String> reducedArrayList  =  new ArrayList<>();
-        reducedArrayList.add(Integer.toString(reducedValue));
-        reducedArrayList.addAll(tempNonAdditionnableAL);
+        if(reducedValue != 0)
+        {
+            reducedArrayList.add(Integer.toString(reducedValue));
+            reducedArrayList.addAll(tempNonAdditionnableAL);
+        }
+        else
+        {
+            reducedArrayList.addAll(tempNonAdditionnableAL);
+            reducedArrayList.remove(0);
+        }
 
         return reducedArrayList;
     }
