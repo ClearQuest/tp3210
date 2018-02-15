@@ -171,6 +171,7 @@ public class ASTAddExpr extends SimpleNode {
             }
         }
 
+        int test = this.jjtGetNumChildren();
         /* OTHERS (Si il y a un ou plus autre children dans { Mult (+/- Mult)* }) */
         for (int i = 1; i < this.jjtGetNumChildren(); i++)
         {
@@ -266,10 +267,18 @@ public class ASTAddExpr extends SimpleNode {
             reducedArrayList.add(Integer.toString(reducedValue));
             reducedArrayList.addAll(tempNonAdditionnableAL);
         }
-        else
+        else if (reducedValue == 0 && this.jjtGetNumChildren() != 1)
         {
             reducedArrayList.addAll(tempNonAdditionnableAL);
             reducedArrayList.remove(0);
+        }
+        else if (reducedValue == 0 && this.jjtGetNumChildren() == 1)
+        {
+            reducedArrayList.add("0");
+        }
+        else
+        {
+            // Error
         }
 
         return reducedArrayList;
