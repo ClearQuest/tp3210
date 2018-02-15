@@ -28,7 +28,7 @@ public class ASTMultExpr extends SimpleNode {
         boolean isLeftId, isRightId = false;*/
 
         //int leftVal = 1, rightVal = 1;
-      //  ArrayList<String> leftArray, rightArray = new ArrayList<>(), stringValues = new ArrayList<>();
+        //  ArrayList<String> leftArray, rightArray = new ArrayList<>(), stringValues = new ArrayList<>();
         ArrayList<String> returnValues = new ArrayList<>();
         ArrayList<ArrayList<String>> arrays = new ArrayList<>();
         ArrayList<String> str = new ArrayList<String>();
@@ -41,9 +41,8 @@ public class ASTMultExpr extends SimpleNode {
             str.add(hasIdentifier(arrays.get(i)));
             isId.add(!(str.get(i).equals("")));
             if (!isId.get(0) && this.isStringInt(arrays.get(0).get(0))) { //get int values
-                val.add( Integer.parseInt(arrays.get(0).get(0))) ;
-            }
-            else val.add(1);
+                val.add(Integer.parseInt(arrays.get(0).get(0)));
+            } else val.add(1);
 
         }
         if (this.jjtGetNumChildren() == 1) { // only left exists
@@ -53,76 +52,32 @@ public class ASTMultExpr extends SimpleNode {
         int totalValue = 1;
         String totalString = "";
         for (int i = 0; i < this.jjtGetNumChildren(); i++) { // what do we return?
-            if(!isId.get(i)) { // is int
+            if (!isId.get(i)) { // is int
                 totalValue *= val.get(i); // mult the values
-            }
-            else{ // isId
-                totalString+=str.get(i);
+            } else { // isId
+                totalString += str.get(i)+"*";
             }
         }
-        if (totalString.length()>1 && totalString.charAt(0)!='('){ //add parenth
+        totalString=totalString.substring(0,totalString.length()-1);
+        if (totalString.length() > 1 && totalString.charAt(0) != '(') { //add parenth
             totalString = "(" + totalString + ")";
         }
 
         //RETURNS
 
-        if(totalValue == 0){
+        if (totalValue == 0) {
             returnValues.add("0");
             return returnValues;
         }
-        String returnString ="";
-        if ((totalValue == 1 && totalString.length() < 1) || totalValue != 1 ){
+        String returnString = "";
+        if ((totalValue == 1 && totalString.length() < 1) || totalValue != 1) {
             returnString += Integer.toString(totalValue);
-            if(totalString.length()>0)
+            if (totalString.length() > 0)
                 returnString += "*";
         }
         returnString += totalString;
         returnValues.add(returnString);
         return returnValues;
-
-
-       /*
-
-        //returns
-        if (!isLeftId && !isRightId) {
-            value = rightVal * leftVal;
-            stringValues.add(Integer.toString(value));
-        } else if (!isLeftId) { //left is num
-            if (leftVal == 0) {
-                stringValues.add("0");
-            } else {
-                if ((leftVal == 1 && rightStr.length() == 0) || leftVal != 1) {
-                    stringValues.add(Integer.toString(leftVal));
-                }
-                if (rightStr.length() > 0 && leftVal != 1) {
-                    stringValues.add("*");
-                }
-                if (rightStr.length() > 0) {
-                    stringValues.add(rightStr);
-                }
-            }
-        } else if (!isRightId) {
-            if (rightVal == 0) {
-                stringValues.add("0");
-            } else {
-                if ((rightVal == 1 && leftStr.length() == 0) || rightVal != 1) {
-                    stringValues.add(Integer.toString(rightVal));
-                }
-                if (leftStr.length() > 0 && rightVal != 1) {
-                    stringValues.add("*");
-                }
-                if (leftStr.length() > 0) {
-                    stringValues.add(leftStr);
-                }
-
-            }
-        } else {//both string
-            stringValues.add(leftStr);
-            stringValues.add("*");
-            stringValues.add(rightStr);
-        }
-
-        return stringValues;*/
     }
 
     private String hasIdentifier(ArrayList<String> array){
