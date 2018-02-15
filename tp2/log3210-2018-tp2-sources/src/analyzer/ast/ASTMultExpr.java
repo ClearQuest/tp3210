@@ -58,7 +58,9 @@ public class ASTMultExpr extends SimpleNode {
                 totalString += str.get(i)+"*";
             }
         }
-        totalString=totalString.substring(0,totalString.length()-1);
+        if(totalString.length()>0) {
+            totalString = totalString.substring(0, totalString.length() - 1);
+        }
         if (totalString.length() > 1 && totalString.charAt(0) != '(') { //add parenth
             totalString = "(" + totalString + ")";
         }
