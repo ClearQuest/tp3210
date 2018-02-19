@@ -1,0 +1,29 @@
+t=*[0.0];
+u=*[0.0];
+for e in t do {
+    s=4;
+    t=*2#t;
+    for e in t do {
+        d=*t;
+            for f in u do{
+                i=0;
+                u[s]=.0.0;
+            }
+    }
+}
+
+
+
+
+t2=*[0.0];
+a=.0.0;
+b=.0.0;
+f=.0.0;
+for f in t2 do {
+    b=.cos(a);
+    a=.cos(b)*.b;
+
+    t2[0]=.a;
+}
+
+for e in t2 do {}
