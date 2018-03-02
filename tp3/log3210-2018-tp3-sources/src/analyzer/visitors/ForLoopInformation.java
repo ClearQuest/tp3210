@@ -87,6 +87,9 @@ public class ForLoopInformation {
     public void setNivImbrication(int niveau) {
         this.nivImbrication = niveau;
     }
+    public void incrementNiveauImbrication() {
+        this.nivImbrication++;
+    }
     public void setTableauParcouru(String tableName){ this.tableauParcouru = tableName; }
     public void setVarLocaleAssigneParBoucle(String varLocale){ this.varlocaleAssigneeParBoucle = varLocale; }
     public void setIsTailleTableauModif(boolean isTabModif){ this.isTailleTableauModified = isTabModif; }

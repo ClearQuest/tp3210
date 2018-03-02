@@ -10,14 +10,10 @@ public class ForStmtVisitor implements ParserVisitor {
     private final PrintWriter m_writer;
     private int m_currentNumber = 0;
     private ArrayList<ForLoopInformation> forLoopInformationList;
-    private ArrayList<String> allVarGlobale;
-    private Boolean isInsideForStmt = false;
-    private int profondeur = 0;
 
     public ForStmtVisitor(PrintWriter writer) {
         this.m_writer = writer;
         this.forLoopInformationList = new ArrayList<>();
-        this.allVarGlobale = new ArrayList<>();
     }
 
     /* Every nodes */
@@ -29,8 +25,11 @@ public class ForStmtVisitor implements ParserVisitor {
 
         /* First node: Start symbol */
         assignNumber(node);
-        data = 0; // Utile pour les couches ?
+        //data = 0; // Utile pour les couches ?
 
+        ForLoopInformation info = new ForLoopInformation();
+        info.setNivImbrication(1);
+        data = info;
         node.childrenAccept(this, data);
 
         for (int i = 0; i < this.forLoopInformationList.size(); i++) {
@@ -87,13 +86,16 @@ public class ForStmtVisitor implements ParserVisitor {
         assignNumber(node);
 
         ForLoopInformation info = new ForLoopInformation();
-        info.addVarGlobalesAvantBoucles(this.allVarGlobale);
-        data = (int)data+1;
-        int couche = (int)data;
-        info.setNivImbrication(couche);
+        info = (ForLoopInformation)data;
 
+        info.setNivImbrication(info.nivImbrication);
         this.forLoopInformationList.add(info);
 
+        if(node.jjtGetParent().jjtGetParent().jjtGetParent().getClass() == ASTForStmt.class) {
+            info.incrementNiveauImbrication();
+        }
+
+        data = info;
         node.childrenAccept(this, data);
 
         return data;
@@ -242,12 +244,13 @@ public class ForStmtVisitor implements ParserVisitor {
                 }
             }
             else{
-                this.addVarGlobaleToList(node.getValue().toString());
+                // Do nothing for now
+                // this.addVarGlobaleToList(node.getValue().toString());
             }
         }
 
-
         node.childrenAccept(this, data);
+
         return data;
     }
 
@@ -280,12 +283,10 @@ public class ForStmtVisitor implements ParserVisitor {
         m_currentNumber++;
     }
 
-    private void addVarGlobaleToList(String str) {
-        if(!this.allVarGlobale.contains(str)) {
-            this.allVarGlobale.add(str);
+    public ArrayList<String> addVarToList(String var, ArrayList<String> ensemble) {
+        if (!ensemble.contains(var)) {
+            ensemble.add(var);
         }
-        else {
-            // Do nothing
-        }
+        return ensemble;
     }
 }
