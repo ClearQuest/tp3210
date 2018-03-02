@@ -30,6 +30,7 @@ public class ForLoopInformation {
         this.varRequiseParBoucle = new ArrayList<String>();
         this.isTailleTableauModified = false;
         this.isVarLocDefinedDansBoucle = false;
+        this.verifierIsVarLocDefinedDansBoucle();
     }
     public ForLoopInformation(ForLoopInformation info) {
         this.nivImbrication = info.nivImbrication;
@@ -41,6 +42,7 @@ public class ForLoopInformation {
         this.varRequiseParBoucle = new ArrayList<String>(info.varRequiseParBoucle);
         this.isTailleTableauModified = info.isTailleTableauModified;
         this.isVarLocDefinedDansBoucle = info.isVarLocDefinedDansBoucle;
+        this.verifierIsVarLocDefinedDansBoucle();
     }
 
     /* Print the results */
@@ -87,7 +89,8 @@ public class ForLoopInformation {
     public void verifierIsTailleTableauModified() {
     } // to do ?
     public void verifierIsVarLocDefinedDansBoucle() {
-    }  // to do ?
+        this.isVarLocDefinedDansBoucle = this.varGlobalesAvantBoucle.contains(this.varlocaleAssigneeParBoucle);
+    }
 
     /* Mutators */
     public void setNivImbrication(int niveau) {
@@ -102,21 +105,21 @@ public class ForLoopInformation {
     public void setIsVarLocDefDansBoucle(boolean isVarLocDef){ this.isVarLocDefinedDansBoucle = isVarLocDef; }
     public void setIsVarLocDefDansBoucle(String varLocale) { this.isVarLocDefinedDansBoucle = this.varGlobalesAvantBoucle.contains(varLocale); }
 
-    public void tailleTableauModified() {
-        if (this.isTailleTableauModified == true) {
-            // Do nothing
-        }
-        else if (this.isTailleTableauModified == false) {
-            this.isTailleTableauModified = true;
-        }
-        else {
-            // Error
-        }
-    }
+    /* Accessors */
+    public int getNivImbrication() { return this.nivImbrication; }
+    public  String getTableauParcouru() { return this.tableauParcouru; }
+    public ArrayList<String> getVarGlobalesAvantBoucle() { return this.varGlobalesAvantBoucle; }
+    public String getVarlocaleAssigneeParBoucle() { return this.varlocaleAssigneeParBoucle; }
+    public ArrayList<String> getAutresVarLocDsBoucle() { return this.autresVarLocDsBoucle; }
+    public ArrayList<String> getVarRedefDansBoucle() { return this.varRedefDansBoucle; }
+    public ArrayList<String> getVarRequiseParBoucle() { return this.varRequiseParBoucle; }
+    public boolean getIsTailleTableauModified() { return this.isTailleTableauModified; }
+    public boolean getIsVarLocDefinedDansBoucle() { return this.isVarLocDefinedDansBoucle; }
 
     /* Add an element or a list of elements in any ArrayLyst parameters */
     public void addVarGlobalesAvantBoucles(String varGlobale){ this.varGlobalesAvantBoucle.add(varGlobale); }
     public void addVarGlobalesAvantBoucles(List<String> varGlobales){ this.varGlobalesAvantBoucle.addAll(varGlobales); }
+    public void removeVarGlobalesAvantBoucles() { this.varGlobalesAvantBoucle.clear(); }
     public void addAutreVarLocDsBoucle(String varLocale){
         this.autresVarLocDsBoucle.add(varLocale);
     }
