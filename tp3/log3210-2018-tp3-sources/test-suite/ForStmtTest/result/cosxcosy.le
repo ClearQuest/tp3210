@@ -1,4 +1,5 @@
-FOR : 0, , [], [], [], [], [], False, False;
-FOR : 0, , [], [], [], [], [], False, False;
-FOR : 0, , [], [], [], [], [], False, False;
-FOR : 0, , [], [], [], [], [], False, False;
+FOR : 0, x, [n,m,x,y,z,i], e, [], [], [], False, False;
+FOR : 0, y, [n,m,x,y,z,i,e], f, [], [], [], False, False;
+FOR : 0, x, [n,m,x,y,z,i,e,f,j,k], first, [], [], [], False, False;
+FOR : 0, y, [n,m,x,y,z,i,e,f,j,k], second, [], [], [], False, False;
+Program node is visited.
