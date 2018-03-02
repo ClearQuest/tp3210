@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7757b04-64a6-4925-b516-a6541a654d92" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Template/analyzer/visitors/ForStmtVisitor.class" afterPath="$PROJECT_DIR$/out/production/Template/analyzer/visitors/ForStmtVisitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java" afterPath="$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-suite/ForStmtTest/result/cosxcosy.le" afterPath="$PROJECT_DIR$/test-suite/ForStmtTest/result/cosxcosy.le" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le" afterPath="$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le" />
-    </list>
+    <list default="true" id="f7757b04-64a6-4925-b516-a6541a654d92" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,8 +40,8 @@
           <file leaf-file-name="ForStmtVisitor.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="351">
-                  <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+                <state relative-caret-position="607">
+                  <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#visit#2;class#ForStmtVisitor#0" expanded="false" />
@@ -147,7 +141,7 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="true">
+              <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/cosxcosy.le">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="64">
@@ -157,11 +151,21 @@
                   </provider>
                 </entry>
               </file>
+              <file leaf-file-name="exemple2.le" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="48">
+                      <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="20" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
             </leaf>
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="true">
+              <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/cosxcosy.le">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="48">
@@ -171,7 +175,7 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="exemple2.le" pinned="false" current-in-tab="false">
+              <file leaf-file-name="exemple2.le" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/exemple2.le">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="64">
@@ -336,26 +340,8 @@
               <option name="myItemId" value="test-suite" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="log3210-2018-tp3-sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="log3210-2018-tp3-sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test-suite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ForStmtTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="result" />
+              <option name="myItemId" value="PrintTest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -373,7 +359,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ForStmtTest" />
+              <option name="myItemId" value="PrintTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="expected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log3210-2018-tp3-sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log3210-2018-tp3-sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test-suite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PrintTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log3210-2018-tp3-sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log3210-2018-tp3-sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test-suite" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -857,7 +883,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1920" height="1174" extended-state="6" />
+    <frame x="0" y="-1" width="1920" height="1174" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -953,8 +979,6 @@
     <entry file="file://$PROJECT_DIR$/test-suite/DumpTreeTest/data/print.le" />
     <entry file="file://$PROJECT_DIR$/test-suite/DumpTreeTest/expected/print.le" />
     <entry file="file://$PROJECT_DIR$/test-suite/DumpTreeTest/result/print.le" />
-    <entry file="file://$PROJECT_DIR$/test-suite/PrintTest/data/exemple.le" />
-    <entry file="file://$PROJECT_DIR$/test-suite/PrintTest/expected/exemple.le" />
     <entry file="file://$PROJECT_DIR$/test/analyzer/TestSuite.java" />
     <entry file="file://$PROJECT_DIR$/src/analyzer/ast/ASTIOStmt.java" />
     <entry file="file://$PROJECT_DIR$/test/analyzer/TestRunner.java" />
@@ -1123,14 +1147,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/exemple2.le">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForLoopInformation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -1146,42 +1162,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/cosxcosy.le">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="45" lean-forward="true" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/data/exemple2.le">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/cosxcosy.le">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        <state relative-caret-position="607">
+          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#visit#2;class#ForStmtVisitor#0" expanded="false" />
@@ -1209,6 +1193,62 @@
             <element signature="method#visit#26;class#ForStmtVisitor#0" expanded="false" />
             <element signature="method#assignNumber#0;class#ForStmtVisitor#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/data/exemple2.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/PrintTest/expected/exemple.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/PrintTest/data/exemple.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/cosxcosy.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/exemple2.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/cosxcosy.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
