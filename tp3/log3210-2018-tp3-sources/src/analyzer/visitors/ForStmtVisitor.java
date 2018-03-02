@@ -36,6 +36,8 @@ public class ForStmtVisitor implements ParserVisitor {
         node.childrenAccept(this, data);
 
         for (int i = 0; i < this.forLoopInformationList.size(); i++) {
+            forLoopInformationList.get(i).verifierIsTailleTableauModified();
+            forLoopInformationList.get(i).verifierIsVarLocDefinedDansBoucle();
             String forLoopResult = new String();
             forLoopResult = forLoopInformationList.get(i).getAllInformationPrintable();
             m_writer.println(forLoopResult);
@@ -90,7 +92,7 @@ public class ForStmtVisitor implements ParserVisitor {
 
         ForLoopInformation info = new ForLoopInformation();
         info = (ForLoopInformation)data;
-        info.setNivImbrication(info.nivImbrication);
+        //info.setNivImbrication(info.nivImbrication);
         //info.addVarGlobalesAvantBoucles(this.listeVariablesGlobales);
 
         this.forLoopInformationList.add(info);

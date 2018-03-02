@@ -83,6 +83,12 @@ public class ForLoopInformation {
         return result;
     }
 
+    /* Verify two bools */
+    public void verifierIsTailleTableauModified() {
+    } // to do ?
+    public void verifierIsVarLocDefinedDansBoucle() {
+    }  // to do ?
+
     /* Mutators */
     public void setNivImbrication(int niveau) {
         this.nivImbrication = niveau;
