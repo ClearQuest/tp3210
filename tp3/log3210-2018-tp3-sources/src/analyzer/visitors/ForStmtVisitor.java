@@ -11,9 +11,12 @@ public class ForStmtVisitor implements ParserVisitor {
     private int m_currentNumber = 0;
     private ArrayList<ForLoopInformation> forLoopInformationList;
 
+    // private ArrayList<String> listeVariablesGlobales; // Facon de faire pas correcte
+
     public ForStmtVisitor(PrintWriter writer) {
         this.m_writer = writer;
         this.forLoopInformationList = new ArrayList<>();
+        //listeVariablesGlobales = new ArrayList<>();
     }
 
     /* Every nodes */
@@ -87,8 +90,9 @@ public class ForStmtVisitor implements ParserVisitor {
 
         ForLoopInformation info = new ForLoopInformation();
         info = (ForLoopInformation)data;
-
         info.setNivImbrication(info.nivImbrication);
+        //info.addVarGlobalesAvantBoucles(this.listeVariablesGlobales);
+
         this.forLoopInformationList.add(info);
 
         if(node.jjtGetParent().jjtGetParent().jjtGetParent().getClass() == ASTForStmt.class) {
@@ -249,6 +253,7 @@ public class ForStmtVisitor implements ParserVisitor {
             }
         }
 
+                // this.addVarGlobaleToList(node.getValue().toString());
         node.childrenAccept(this, data);
 
         return data;
@@ -289,4 +294,16 @@ public class ForStmtVisitor implements ParserVisitor {
         }
         return ensemble;
     }
+
+    /*
+    private void addVarGlobaleToList(String str) {
+
+        if(!this.listeVariablesGlobales.contains(str)) {
+            this.listeVariablesGlobales.add(str);
+        }
+        else {
+            // Do nothing
+        }
+    }
+    */
 }
