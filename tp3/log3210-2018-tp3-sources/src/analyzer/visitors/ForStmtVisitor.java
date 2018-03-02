@@ -11,12 +11,12 @@ public class ForStmtVisitor implements ParserVisitor {
     private int m_currentNumber = 0;
     private ArrayList<ForLoopInformation> forLoopInformationList;
 
-    // private ArrayList<String> listeVariablesGlobales;
+    private ArrayList<String> listeVariablesGlobales;
 
     public ForStmtVisitor(PrintWriter writer) {
         this.m_writer = writer;
         this.forLoopInformationList = new ArrayList<>();
-        // listeVariablesGlobales = new ArrayList<>();
+        listeVariablesGlobales = new ArrayList<>();
     }
 
     /* Every nodes */
@@ -99,12 +99,14 @@ public class ForStmtVisitor implements ParserVisitor {
 
         node.setForLoopInformation(info);
         this.forLoopInformationList.add(info);
+        this.addVarGlobaleToList(node.getForLoopInformation().getVarGlobalesAvantBoucle());
 
         data = info;
         node.childrenAccept(this, data);
 
         /* On sort du for loop ici */
         info.removeVarGlobalesAvantBoucles();
+        info.addVarGlobalesAvantBoucles(this.listeVariablesGlobales);
         info.nivImbrication = 1;
         node.setForLoopInformation(info);
 
@@ -235,7 +237,6 @@ public class ForStmtVisitor implements ParserVisitor {
     public Object visit(ASTIdentifier node, Object data) {
         assignNumber(node);
 
-
         /* TO CLEAN */
         if (node.jjtGetParent().getClass() != ASTFctStmt.class) {
             if (node.jjtGetParent().getClass() == ASTForStmt.class) {
@@ -264,6 +265,7 @@ public class ForStmtVisitor implements ParserVisitor {
         if(!info.getVarGlobalesAvantBoucle().contains(node.getValue().toString())) {
             if(node.getValue().toString() != info.getVarlocaleAssigneeParBoucle()) {
                 info.addVarGlobalesAvantBoucles(node.getValue().toString());
+                //this.addVarGlobaleToList(node.getValue().toString());
             }
         }
 
@@ -309,7 +311,7 @@ public class ForStmtVisitor implements ParserVisitor {
         return ensemble;
     }
 
-    /*
+
     private void addVarGlobaleToList(String str) {
 
         if(!this.listeVariablesGlobales.contains(str)) {
@@ -319,5 +321,13 @@ public class ForStmtVisitor implements ParserVisitor {
             // Do nothing
         }
     }
-    */
+
+    private void addVarGlobaleToList(ArrayList<String> list) {
+
+        for (int i = 0; i < list.size(); i++) {
+            if (!this.listeVariablesGlobales.contains(list.get(i))) {
+                this.listeVariablesGlobales.add(list.get(i));
+            }
+        }
+    }
 }
