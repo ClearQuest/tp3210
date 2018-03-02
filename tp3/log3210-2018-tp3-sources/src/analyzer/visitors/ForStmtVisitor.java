@@ -9,7 +9,6 @@ public class ForStmtVisitor implements ParserVisitor {
 
     private final PrintWriter m_writer;
     private int m_currentNumber = 0;
-    private int numberOfFor = 0;
     private ArrayList<ForLoopInformation> forLoopInformationList;
     private ArrayList<String> allVarGlobale;
     private Boolean isInsideForStmt = false;
@@ -27,11 +26,18 @@ public class ForStmtVisitor implements ParserVisitor {
 
     @Override
     public Object visit(ASTProgram node, Object data) {
+
         /* First node: Start symbol */
         assignNumber(node);
+        data = 0; // Utile pour les couches ?
+
         node.childrenAccept(this, data);
-        m_writer.println("Program node is visited.");
-        data = "5";
+
+        for (int i = 0; i < this.forLoopInformationList.size(); i++) {
+            String forLoopResult = new String();
+            forLoopResult = forLoopInformationList.get(i).getAllInformationPrintable();
+            m_writer.println(forLoopResult);
+        }
 
         return data;
     }
@@ -79,18 +85,17 @@ public class ForStmtVisitor implements ParserVisitor {
     @Override
     public Object visit(ASTForStmt node, Object data) {
         assignNumber(node);
-        this.numberOfFor++;
 
-        // m_writer.println("A ForStmt is visited ");
         ForLoopInformation info = new ForLoopInformation();
         info.addVarGlobalesAvantBoucles(this.allVarGlobale);
-
-        //int couche = ((Integer)data).intValue();
-        info.setNivImbrication(this.profondeur);
+        data = (int)data+1;
+        int couche = (int)data;
+        info.setNivImbrication(couche);
 
         this.forLoopInformationList.add(info);
 
         node.childrenAccept(this, data);
+
         return data;
     }
 
@@ -217,6 +222,9 @@ public class ForStmtVisitor implements ParserVisitor {
     @Override
     public Object visit(ASTIdentifier node, Object data) {
         assignNumber(node);
+
+        /* TO CLEAN */
+
         if (node.jjtGetParent().getClass() != ASTFctStmt.class) {
             if (node.jjtGetParent().getClass() == ASTForStmt.class) {
                 String varLocale = node.getValue().toString();
@@ -231,16 +239,13 @@ public class ForStmtVisitor implements ParserVisitor {
                     ForLoopInformation newFoorLoop = new ForLoopInformation(this.forLoopInformationList.get(this.forLoopInformationList.size()-1));
                     newFoorLoop.setTableauParcouru(varLocale);
                     this.forLoopInformationList.set(this.forLoopInformationList.size()-1, newFoorLoop);
-
-                    String forLoopResult = new String();
-                    forLoopResult = newFoorLoop.getAllInformationPrintable();
-                    m_writer.println(forLoopResult);
                 }
             }
             else{
                 this.addVarGlobaleToList(node.getValue().toString());
             }
         }
+
 
         node.childrenAccept(this, data);
         return data;
