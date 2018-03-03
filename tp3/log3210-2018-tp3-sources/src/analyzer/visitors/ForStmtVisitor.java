@@ -11,12 +11,12 @@ public class ForStmtVisitor implements ParserVisitor {
     private int m_currentNumber = 0;
     private ArrayList<ForLoopInformation> forLoopInformationList;
 
-    // private ArrayList<String> listeVariablesGlobales; // Facon de faire pas correcte
+    private ArrayList<String> listeVariablesGlobales;
 
     public ForStmtVisitor(PrintWriter writer) {
         this.m_writer = writer;
         this.forLoopInformationList = new ArrayList<>();
-        //listeVariablesGlobales = new ArrayList<>();
+        listeVariablesGlobales = new ArrayList<>();
     }
 
     /* Every nodes */
@@ -36,8 +36,6 @@ public class ForStmtVisitor implements ParserVisitor {
         node.childrenAccept(this, data);
 
         for (int i = 0; i < this.forLoopInformationList.size(); i++) {
-            forLoopInformationList.get(i).verifierIsTailleTableauModified();
-            forLoopInformationList.get(i).verifierIsVarLocDefinedDansBoucle();
             String forLoopResult = new String();
             forLoopResult = forLoopInformationList.get(i).getAllInformationPrintable();
             m_writer.println(forLoopResult);
@@ -92,17 +90,25 @@ public class ForStmtVisitor implements ParserVisitor {
 
         ForLoopInformation info = new ForLoopInformation();
         info = (ForLoopInformation)data;
-        //info.setNivImbrication(info.nivImbrication);
         //info.addVarGlobalesAvantBoucles(this.listeVariablesGlobales);
 
-        this.forLoopInformationList.add(info);
-
         if(node.jjtGetParent().jjtGetParent().jjtGetParent().getClass() == ASTForStmt.class) {
-            info.incrementNiveauImbrication();
+            ASTForStmt parentNode = (ASTForStmt)node.jjtGetParent().jjtGetParent().jjtGetParent();
+            info.setNivImbrication(parentNode.getForLoopInformation().nivImbrication+1);
         }
+
+        node.setForLoopInformation(info);
+        this.forLoopInformationList.add(info);
+        this.addVarGlobaleToList(node.getForLoopInformation().getVarGlobalesAvantBoucle());
 
         data = info;
         node.childrenAccept(this, data);
+
+        /* On sort du for loop ici */
+        info.removeVarGlobalesAvantBoucles();
+        info.addVarGlobalesAvantBoucles(this.listeVariablesGlobales);
+        info.nivImbrication = 1;
+        node.setForLoopInformation(info);
 
         return data;
     }
@@ -232,7 +238,6 @@ public class ForStmtVisitor implements ParserVisitor {
         assignNumber(node);
 
         /* TO CLEAN */
-
         if (node.jjtGetParent().getClass() != ASTFctStmt.class) {
             if (node.jjtGetParent().getClass() == ASTForStmt.class) {
                 String varLocale = node.getValue().toString();
@@ -251,7 +256,16 @@ public class ForStmtVisitor implements ParserVisitor {
             }
             else{
                 // Do nothing for now
-                // this.addVarGlobaleToList(node.getValue().toString());
+                //this.addVarGlobaleToList(node.getValue().toString());
+            }
+        }
+
+        ForLoopInformation info = new ForLoopInformation();
+        info = (ForLoopInformation)data;
+        if(!info.getVarGlobalesAvantBoucle().contains(node.getValue().toString())) {
+            if(node.getValue().toString() != info.getVarlocaleAssigneeParBoucle()) {
+                info.addVarGlobalesAvantBoucles(node.getValue().toString());
+                //this.addVarGlobaleToList(node.getValue().toString());
             }
         }
 
@@ -297,7 +311,7 @@ public class ForStmtVisitor implements ParserVisitor {
         return ensemble;
     }
 
-    /*
+
     private void addVarGlobaleToList(String str) {
 
         if(!this.listeVariablesGlobales.contains(str)) {
@@ -307,5 +321,13 @@ public class ForStmtVisitor implements ParserVisitor {
             // Do nothing
         }
     }
-    */
+
+    private void addVarGlobaleToList(ArrayList<String> list) {
+
+        for (int i = 0; i < list.size(); i++) {
+            if (!this.listeVariablesGlobales.contains(list.get(i))) {
+                this.listeVariablesGlobales.add(list.get(i));
+            }
+        }
+    }
 }

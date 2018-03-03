@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7757b04-64a6-4925-b516-a6541a654d92" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/visitors/ForLoopInformation.java" afterPath="$PROJECT_DIR$/src/analyzer/visitors/ForLoopInformation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java" afterPath="$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java" />
-    </list>
+    <list default="true" id="f7757b04-64a6-4925-b516-a6541a654d92" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +12,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.74116427">
+    <splitter split-orientation="vertical" split-proportion="0.7186478">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -23,7 +20,9 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="528">
                   <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="53" />
-                  <folding />
+                  <folding>
+                    <element signature="imports" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -41,23 +40,35 @@
           <file leaf-file-name="ForStmtVisitor.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="329">
-                  <caret line="234" column="0" lean-forward="true" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+                <state relative-caret-position="607">
+                  <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="method#visit#2;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#3;class#ForStmtVisitor#0" expanded="false" />
                     <element signature="method#visit#4;class#ForStmtVisitor#0" expanded="false" />
-                    <element signature="method#addVarToList#0;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#5;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#6;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#8;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#9;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#10;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#11;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#12;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#13;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#14;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#15;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#16;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#17;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#18;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#19;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#20;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#21;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#22;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#24;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#25;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#visit#26;class#ForStmtVisitor#0" expanded="false" />
+                    <element signature="method#assignNumber#0;class#ForStmtVisitor#0" expanded="false" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BaseTest.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/analyzer/tests/BaseTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="992">
-                  <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -65,15 +76,15 @@
           <file leaf-file-name="ForLoopInformation.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForLoopInformation.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="512">
-                  <caret line="88" column="49" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="49" />
+                <state relative-caret-position="309">
+                  <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
                   <folding>
                     <element signature="method#ForLoopInformation#0;class#ForLoopInformation#0" expanded="false" />
                     <element signature="method#ForLoopInformation#1;class#ForLoopInformation#0" expanded="false" />
                     <element signature="method#getAllInformationPrintable#0;class#ForLoopInformation#0" expanded="false" />
                     <element signature="method#arrayListToString#0;class#ForLoopInformation#0" expanded="false" />
                     <element signature="method#boolToStrintg#0;class#ForLoopInformation#0" expanded="false" />
-                    <element signature="method#tailleTableauModified#0;class#ForLoopInformation#0" expanded="false" />
+                    <element signature="method#verifierIsVarLocDefinedDansBoucle#0;class#ForLoopInformation#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -95,7 +106,10 @@
                 <state relative-caret-position="160">
                   <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
                   <folding>
-                    <element signature="e#393#394#0" expanded="true" />
+                    <element signature="e#170#171#0" expanded="false" />
+                    <element signature="e#189#190#0" expanded="false" />
+                    <element signature="e#233#234#0" expanded="false" />
+                    <element signature="e#255#256#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -110,8 +124,8 @@
               <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/data/cosxcosy.le">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="96">
-                      <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+                    <state relative-caret-position="16">
+                      <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
                       <folding />
                     </state>
                   </provider>
@@ -120,14 +134,14 @@
               <file leaf-file-name="exemple2.le" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/data/exemple2.le">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="64">
-                      <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+                    <state relative-caret-position="88">
+                      <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="true">
+              <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/cosxcosy.le">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="64">
@@ -137,11 +151,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="exemple2.le" pinned="false" current-in-tab="false">
+              <file leaf-file-name="exemple2.le" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="0">
-                      <caret line="0" column="44" lean-forward="true" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+                    <state relative-caret-position="48">
+                      <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="20" />
                       <folding />
                     </state>
                   </provider>
@@ -151,7 +165,7 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="true">
+              <file leaf-file-name="cosxcosy.le" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/cosxcosy.le">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="48">
@@ -161,11 +175,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="exemple2.le" pinned="false" current-in-tab="false">
+              <file leaf-file-name="exemple2.le" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/exemple2.le">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="64">
-                      <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="30" />
+                      <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
                       <folding />
                     </state>
                   </provider>
@@ -179,12 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>floataddex</find>
-      <find>realval</find>
-      <find>arrayassi</find>
-      <find>arrayassig</find>
-      <find>ArrayContExpr</find>
-      <find>intadde</find>
       <find>unary</find>
       <find>intbasic</find>
       <find>forLoopResult</find>
@@ -208,7 +216,13 @@
       <find>numberOfFor</find>
       <find>niv</find>
       <find>0</find>
+      <find>incr</find>
+      <find>data</find>
+      <find>(astforstmt)</find>
+      <find>(forloopIn</find>
+      <find>node.ge</find>
       <find>addVarGlobalesAvantBoucles</find>
+      <find>listeVariablesGlobales</find>
     </findStrings>
     <replaceStrings>
       <replace>doDefault(node);</replace>
@@ -225,8 +239,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/analyzer/visitors/DumpTreeVisitor.vide" />
-        <option value="$PROJECT_DIR$/src/analyzer/visitors/AddSubstract0Visitor.java" />
         <option value="$PROJECT_DIR$/test/analyzer/tests/AddSubstract0Test.java" />
         <option value="$PROJECT_DIR$/test/analyzer/tests/AddSubtract0Test.java" />
         <option value="$PROJECT_DIR$/src/analyzer/visitors/AddSubtract0Visitor.vide" />
@@ -267,13 +279,15 @@
         <option value="$PROJECT_DIR$/test-suite/PrintTest/expected/exemple.le" />
         <option value="$PROJECT_DIR$/test-suite/ForStmtTest/data/cosxcosy.le" />
         <option value="$PROJECT_DIR$/test-suite/ForStmtTest/data/exemple2.le" />
-        <option value="$PROJECT_DIR$/test-suite/ForStmtTest/expected/exemple2.le" />
         <option value="$PROJECT_DIR$/test-suite/ForStmtTest/expected/cosxcosy.le" />
         <option value="$PROJECT_DIR$/src/analyzer/ForLoopInformation.java" />
         <option value="$PROJECT_DIR$/gen-src/analyzer/ast/Langage.jjt" />
         <option value="$PROJECT_DIR$/Langage.jjt" />
         <option value="$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le" />
         <option value="$PROJECT_DIR$/src/analyzer/ast/SimpleNode.java" />
+        <option value="$PROJECT_DIR$/src/analyzer/ast/ASTForStmt.java" />
+        <option value="$PROJECT_DIR$/test-suite/ForStmtTest/expected/exemple2.le" />
+        <option value="$PROJECT_DIR$/test-suite/ForStmtTest/result/cosxcosy.le" />
         <option value="$PROJECT_DIR$/src/analyzer/visitors/ForLoopInformation.java" />
         <option value="$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java" />
       </list>
@@ -326,26 +340,8 @@
               <option name="myItemId" value="test-suite" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="log3210-2018-tp3-sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="log3210-2018-tp3-sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test-suite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ForStmtTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="result" />
+              <option name="myItemId" value="PrintTest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -363,7 +359,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ForStmtTest" />
+              <option name="myItemId" value="PrintTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="expected" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -381,11 +381,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ForStmtTest" />
+              <option name="myItemId" value="PrintTest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log3210-2018-tp3-sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log3210-2018-tp3-sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test-suite" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -451,20 +465,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="log3210-2018-tp3-sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="log3210-2018-tp3-sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gen-src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -507,7 +507,49 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in Template (5)">
+  <component name="RunManager" selected="JUnit.All in Template (4)">
+    <configuration default="false" name="All in Template (5)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Template" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="All in Template (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Template" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="false" name="All in Template (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Template" />
@@ -551,48 +593,6 @@
       <method />
     </configuration>
     <configuration default="false" name="All in Template (4)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Template" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="All in Template" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Template" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="All in Template (5)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Template" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -818,19 +818,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.All in Template (2)" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.All in Template (3)" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.All in Template (4)" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.All in Template" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.All in Template (5)" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.All in Template (5)" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.All in Template (1)" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.All in Template (2)" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.All in Template (3)" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.All in Template (4)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in Template (5)" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in Template" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.All in Template (4)" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.All in Template (3)" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.All in Template (2)" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in Template (4)" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in Template (3)" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in Template (2)" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.All in Template (1)" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.All in Template (5)" />
       </list>
     </recent_temporary>
   </component>
@@ -851,50 +851,51 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Template - 2018.03.02 at 00h 10m 55s.xml">
+    <history-entry file="All_in_Template - 2018.03.02 at 14h 52m 56s.xml">
       <configuration name="All in Template" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Template_(1) - 2018.03.01 at 23h 44m 05s.xml">
+    <history-entry file="All_in_Template_(1) - 2018.03.02 at 14h 43m 56s.xml">
       <configuration name="All in Template (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Template_(1) - 2018.03.02 at 00h 17m 39s.xml">
+    <history-entry file="All_in_Template_(1) - 2018.03.02 at 15h 01m 59s.xml">
       <configuration name="All in Template (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Template_(2) - 2018.03.01 at 23h 44m 30s.xml">
+    <history-entry file="All_in_Template_(2) - 2018.03.02 at 14h 45m 09s.xml">
       <configuration name="All in Template (2)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Template_(2) - 2018.03.02 at 00h 19m 11s.xml">
+    <history-entry file="All_in_Template_(2) - 2018.03.02 at 15h 02m 48s.xml">
       <configuration name="All in Template (2)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Template_(3) - 2018.03.01 at 23h 45m 01s.xml">
+    <history-entry file="All_in_Template_(3) - 2018.03.02 at 14h 48m 22s.xml">
       <configuration name="All in Template (3)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Template_(4) - 2018.03.01 at 23h 57m 56s.xml">
+    <history-entry file="All_in_Template_(3) - 2018.03.02 at 15h 03m 19s.xml">
+      <configuration name="All in Template (3)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Template_(4) - 2018.03.02 at 14h 48m 49s.xml">
       <configuration name="All in Template (4)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Template_(5) - 2018.03.01 at 23h 40m 26s.xml">
-      <configuration name="All in Template (5)" configurationId="JUnit" />
+    <history-entry file="All_in_Template_(4) - 2018.03.02 at 15h 07m 29s.xml">
+      <configuration name="All in Template (4)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Template_(5) - 2018.03.02 at 00h 12m 13s.xml">
-      <configuration name="All in Template (5)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Template_(5) - 2018.03.02 at 00h 20m 30s.xml">
+    <history-entry file="All_in_Template_(5) - 2018.03.02 at 14h 53m 32s.xml">
       <configuration name="All in Template (5)" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1920" height="1174" extended-state="6" />
+    <frame x="0" y="-1" width="1920" height="1174" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23069768" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10511628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14697674" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293023" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -908,13 +909,34 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2427907" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.075520836" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2427907" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23069768" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10511628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293023" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14739583" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283721" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -951,15 +973,12 @@
     <entry file="file://$PROJECT_DIR$/test-suite/DumpTreeTest/data/addsubtract0.le" />
     <entry file="file://$PROJECT_DIR$/Template.iml" />
     <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple.le" />
-    <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/PrintVisitor.java" />
     <entry file="file://$PROJECT_DIR$/test/analyzer/tests/PrintTest.java" />
     <entry file="file://$PROJECT_DIR$/test/analyzer/tests/DumpTreeTest.java" />
     <entry file="file://$PROJECT_DIR$/build.xml" />
     <entry file="file://$PROJECT_DIR$/test-suite/DumpTreeTest/data/print.le" />
     <entry file="file://$PROJECT_DIR$/test-suite/DumpTreeTest/expected/print.le" />
     <entry file="file://$PROJECT_DIR$/test-suite/DumpTreeTest/result/print.le" />
-    <entry file="file://$PROJECT_DIR$/test-suite/PrintTest/data/exemple.le" />
-    <entry file="file://$PROJECT_DIR$/test-suite/PrintTest/expected/exemple.le" />
     <entry file="file://$PROJECT_DIR$/test/analyzer/TestSuite.java" />
     <entry file="file://$PROJECT_DIR$/src/analyzer/ast/ASTIOStmt.java" />
     <entry file="file://$PROJECT_DIR$/test/analyzer/TestRunner.java" />
@@ -984,7 +1003,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -992,7 +1010,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,10 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="22" />
-          <folding>
-            <element signature="e#447#448#0" expanded="false" />
-            <element signature="e#469#470#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1019,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,18 +1042,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen-src/analyzer/ast/ASTForStmt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/analyzer/ast/ASTIntMultExpr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1065,7 +1069,10 @@
         <state relative-caret-position="160">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#170#171#0" expanded="false" />
+            <element signature="e#189#190#0" expanded="false" />
+            <element signature="e#233#234#0" expanded="false" />
+            <element signature="e#255#256#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1081,23 +1088,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/data/cosxcosy.le">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/data/exemple2.le">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1117,10 +1110,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/exemple2.le">
+    <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/PrintVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="30" />
+        <state relative-caret-position="-1517">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#259#260#0" expanded="true" />
+            <element signature="e#292#293#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/analyzer/tests/BaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/data/cosxcosy.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/ast/ASTForStmt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForLoopInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+          <folding>
+            <element signature="method#ForLoopInformation#0;class#ForLoopInformation#0" expanded="false" />
+            <element signature="method#ForLoopInformation#1;class#ForLoopInformation#0" expanded="false" />
+            <element signature="method#getAllInformationPrintable#0;class#ForLoopInformation#0" expanded="false" />
+            <element signature="method#arrayListToString#0;class#ForLoopInformation#0" expanded="false" />
+            <element signature="method#boolToStrintg#0;class#ForLoopInformation#0" expanded="false" />
+            <element signature="method#verifierIsVarLocDefinedDansBoucle#0;class#ForLoopInformation#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#visit#2;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#3;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#4;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#5;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#6;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#8;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#9;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#10;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#11;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#12;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#13;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#14;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#15;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#16;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#17;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#18;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#19;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#20;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#21;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#22;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#24;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#25;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#visit#26;class#ForStmtVisitor#0" expanded="false" />
+            <element signature="method#assignNumber#0;class#ForStmtVisitor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/data/exemple2.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/PrintTest/expected/exemple.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/PrintTest/data/exemple.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1133,45 +1228,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/analyzer/tests/BaseTest.java">
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/expected/exemple2.le">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="992">
-          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForLoopInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="88" column="49" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="49" />
-          <folding>
-            <element signature="method#ForLoopInformation#0;class#ForLoopInformation#0" expanded="false" />
-            <element signature="method#ForLoopInformation#1;class#ForLoopInformation#0" expanded="false" />
-            <element signature="method#getAllInformationPrintable#0;class#ForLoopInformation#0" expanded="false" />
-            <element signature="method#arrayListToString#0;class#ForLoopInformation#0" expanded="false" />
-            <element signature="method#boolToStrintg#0;class#ForLoopInformation#0" expanded="false" />
-            <element signature="method#tailleTableauModified#0;class#ForLoopInformation#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/visitors/ForStmtVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="234" column="0" lean-forward="true" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#visit#4;class#ForStmtVisitor#0" expanded="false" />
-            <element signature="method#addVarToList#0;class#ForStmtVisitor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="44" lean-forward="true" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+        <state relative-caret-position="64">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1180,6 +1240,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-suite/ForStmtTest/result/exemple2.le">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="20" />
           <folding />
         </state>
       </provider>
