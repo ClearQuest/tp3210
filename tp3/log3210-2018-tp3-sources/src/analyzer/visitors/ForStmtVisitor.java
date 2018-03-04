@@ -61,6 +61,7 @@ public class ForStmtVisitor implements ParserVisitor {
 
         for (int i = 0; i < this.forLoopInformationList.size(); i++) {
             String forLoopResult = new String();
+            this.forLoopInformationList.get(i).verifierIsVarLocDefinedDansBoucle();
             forLoopResult = forLoopInformationList.get(i).getAllInformationPrintable();
             m_writer.println(forLoopResult);
         }
