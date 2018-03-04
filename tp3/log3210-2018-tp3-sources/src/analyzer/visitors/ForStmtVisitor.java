@@ -32,11 +32,39 @@ public class ForStmtVisitor implements ParserVisitor {
         data = info;
         node.childrenAccept(this, data);
 
+        /* Remove var glob leaving boucle */
+        for (int i = 1; i < this.forLoopInformationList.size(); i++) {
+            if (this.forLoopInformationList.get(i).getNivImbrication() < this.forLoopInformationList.get(i-1).getNivImbrication()) {
+                /* Si on a quitté une boucle for */
+                ArrayList<String> premierNiv = new ArrayList<String>();
+                ArrayList<String> dernierNiv = new ArrayList<String>();
+                ArrayList<String> ensembleASupprimer = new ArrayList<String>();
+
+                if (this.forLoopInformationList.get(i-1).getNivImbrication() == 3) {
+                    premierNiv = this.forLoopInformationList.get(i-3).getVarGlobalesAvantBoucle();
+                }
+                else if (this.forLoopInformationList.get(i-1).getNivImbrication() == 2) {
+                    premierNiv = this.forLoopInformationList.get(i-2).getVarGlobalesAvantBoucle();
+                }
+                else {}
+                dernierNiv = this.forLoopInformationList.get(i-1).getVarGlobalesAvantBoucle();
+
+                for (int k = 0; k < dernierNiv.size(); k++) {
+                    if (!premierNiv.contains(dernierNiv.get(k))) {
+                        this.forLoopInformationList.get(i).removeVarGlobaleAvantBoucles(dernierNiv.get(k));
+                        this.forLoopInformationList.get(i+1).removeVarGlobaleAvantBoucles(dernierNiv.get(k));
+                    }
+                }
+            }
+        }
+
+
         for (int i = 0; i < this.forLoopInformationList.size(); i++) {
             String forLoopResult = new String();
             forLoopResult = forLoopInformationList.get(i).getAllInformationPrintable();
             m_writer.println(forLoopResult);
         }
+
         return data;
     }
 
@@ -103,13 +131,12 @@ public class ForStmtVisitor implements ParserVisitor {
         this.addVarGlobaleToList(node.getForLoopInformation().getVarGlobalesAvantBoucle());
 
         data = info;
-        node.childrenAccept(this, data);
+        data = node.childrenAccept(this, data);
         /* On sort du for loop ici */
         info.removeVarGlobalesAvantBoucles();
         info.addVarGlobalesAvantBoucles(this.listeVariablesGlobales);
         info.nivImbrication = 1;
         node.setForLoopInformation(info);
-
 
         return data;
     }

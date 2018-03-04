@@ -171,8 +171,6 @@ void Stmt() : {}
     LOOKAHEAD(2) IntAssignStmt() <SEMICOLON> |
     LOOKAHEAD(2) FloatAssignStmt() <SEMICOLON> |
     LOOKAHEAD(2) ArrayAssignStmt() <SEMICOLON>
-
-
 }
 
 
@@ -209,9 +207,6 @@ void ForStmt() : {}
 {
     <FOR> Identifier() <IN> ArrayContExpr() <DO> <LACC> Block() <RACC>
 }
-
-
-
 
 
 void Expr() :{}

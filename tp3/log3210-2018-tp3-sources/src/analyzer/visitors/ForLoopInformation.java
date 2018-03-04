@@ -119,6 +119,9 @@ public class ForLoopInformation {
     /* Add an element or a list of elements in any ArrayLyst parameters */
     public void addVarGlobalesAvantBoucles(String varGlobale){ this.varGlobalesAvantBoucle.add(varGlobale); }
     public void addVarGlobalesAvantBoucles(List<String> varGlobales){ this.varGlobalesAvantBoucle.addAll(varGlobales); }
+    public void removeVarGlobaleAvantBoucles(String varGlob) {
+        this.varGlobalesAvantBoucle.remove(varGlob);
+    }
     public void removeVarGlobalesAvantBoucles() { this.varGlobalesAvantBoucle.clear(); }
     public void addAutreVarLocDsBoucle(String varLocale){
         this.autresVarLocDsBoucle.add(varLocale);
