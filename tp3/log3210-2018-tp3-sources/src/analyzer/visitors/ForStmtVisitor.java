@@ -10,13 +10,12 @@ public class ForStmtVisitor implements ParserVisitor {
     private final PrintWriter m_writer;
     private int m_currentNumber = 0;
     private ArrayList<ForLoopInformation> forLoopInformationList;
-
     private ArrayList<String> listeVariablesGlobales;
 
     public ForStmtVisitor(PrintWriter writer) {
         this.m_writer = writer;
         this.forLoopInformationList = new ArrayList<>();
-        listeVariablesGlobales = new ArrayList<>();
+        this.listeVariablesGlobales = new ArrayList<>();
     }
 
     /* Every nodes */
@@ -25,13 +24,11 @@ public class ForStmtVisitor implements ParserVisitor {
 
     @Override
     public Object visit(ASTProgram node, Object data) {
-
         /* First node: Start symbol */
         assignNumber(node);
-        //data = 0; // Utile pour les couches ?
 
         ForLoopInformation info = new ForLoopInformation();
-        info.setNivImbrication(1);
+        info.setNivImbrication(0);
         data = info;
         node.childrenAccept(this, data);
 
@@ -40,7 +37,6 @@ public class ForStmtVisitor implements ParserVisitor {
             forLoopResult = forLoopInformationList.get(i).getAllInformationPrintable();
             m_writer.println(forLoopResult);
         }
-
         return data;
     }
 
@@ -90,11 +86,16 @@ public class ForStmtVisitor implements ParserVisitor {
 
         ForLoopInformation info = new ForLoopInformation();
         info = (ForLoopInformation)data;
-        //info.addVarGlobalesAvantBoucles(this.listeVariablesGlobales);
 
-        if(node.jjtGetParent().jjtGetParent().jjtGetParent().getClass() == ASTForStmt.class) {
+        if (this.forLoopInformationList.size() == 0) {
+            info.setNivImbrication(1);
+        }
+        else if(node.jjtGetParent().jjtGetParent().jjtGetParent().getClass() == ASTForStmt.class) {
             ASTForStmt parentNode = (ASTForStmt)node.jjtGetParent().jjtGetParent().jjtGetParent();
             info.setNivImbrication(parentNode.getForLoopInformation().nivImbrication+1);
+        }
+        else {
+            // Do nothing: (info.setNivImbrication(0);)
         }
 
         node.setForLoopInformation(info);
@@ -103,12 +104,12 @@ public class ForStmtVisitor implements ParserVisitor {
 
         data = info;
         node.childrenAccept(this, data);
-
         /* On sort du for loop ici */
         info.removeVarGlobalesAvantBoucles();
         info.addVarGlobalesAvantBoucles(this.listeVariablesGlobales);
         info.nivImbrication = 1;
         node.setForLoopInformation(info);
+
 
         return data;
     }
@@ -237,7 +238,10 @@ public class ForStmtVisitor implements ParserVisitor {
     public Object visit(ASTIdentifier node, Object data) {
         assignNumber(node);
 
+        /***************** OLD ****************/
+
         /* TO CLEAN */
+
         if (node.jjtGetParent().getClass() != ASTFctStmt.class) {
             if (node.jjtGetParent().getClass() == ASTForStmt.class) {
                 String varLocale = node.getValue().toString();
@@ -269,8 +273,13 @@ public class ForStmtVisitor implements ParserVisitor {
             }
         }
 
-                // this.addVarGlobaleToList(node.getValue().toString());
+        // this.addVarGlobaleToList(node.getValue().toString());
+
         node.childrenAccept(this, data);
+
+
+        //node.childrenAccept(this, data);
+        /***************** NEW ****************/
 
         return data;
     }
@@ -310,7 +319,6 @@ public class ForStmtVisitor implements ParserVisitor {
         }
         return ensemble;
     }
-
 
     private void addVarGlobaleToList(String str) {
 
