@@ -1,4 +1,0 @@
-FOR : 1, x, [n,m,x,y,z,i], e, [], [e,i], [], False, False;
-FOR : 1, y, [n,m,x,y,z,i], f, [], [f,i], [], False, False;
-FOR : 1, x, [n,m,x,y,z,i,j,k], first, [], [], [], False, False;
-FOR : 2, y, [n,m,x,y,z,i,j,k,first], second, [], [k], [], False, False;

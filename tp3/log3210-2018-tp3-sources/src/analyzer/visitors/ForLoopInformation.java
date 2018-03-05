@@ -20,6 +20,7 @@ public class ForLoopInformation {
     private boolean isVarLocDefinedDansBoucle;              // #9: Un booléen indiquant si la variable locale a déjà été définie en dehors de la boucle
     private ArrayList<String> varDefDansInnerBoucle;
     private ForLoopInformation parentInfo;
+    private ArrayList<String> innerVarDefinitions;
 
     /* Constructors */
     public ForLoopInformation() {
@@ -34,6 +35,7 @@ public class ForLoopInformation {
         this.isTailleTableauModified = false;
         this.isVarLocDefinedDansBoucle = false;
         this.verifierIsVarLocDefinedDansBoucle();
+        this.innerVarDefinitions = new ArrayList<String>();
     }
     public ForLoopInformation(ForLoopInformation info) {
         this.nivImbrication = info.nivImbrication;
@@ -46,6 +48,7 @@ public class ForLoopInformation {
         this.isTailleTableauModified = info.isTailleTableauModified;
         this.isVarLocDefinedDansBoucle = info.isVarLocDefinedDansBoucle;
         this.verifierIsVarLocDefinedDansBoucle();
+        this.innerVarDefinitions =  new ArrayList<String>();
     }
 
     /* Print the results */
@@ -148,7 +151,7 @@ public class ForLoopInformation {
             this.autresVarLocDsBoucle.add(varLocale);
         }
     }
-    public void addAutreVarLocDsBoucle(List<String> varLocales){
+        public void addAutreVarLocDsBoucle(List<String> varLocales){
        for(String variable : varLocales) {
            if(!this.autresVarLocDsBoucle.contains(variable)) {
                this.autresVarLocDsBoucle.add(variable);
@@ -189,10 +192,32 @@ public class ForLoopInformation {
     public List<String> getVarDefDansInnerBoucle(){
         return varDefDansInnerBoucle;
     }
+
+
+
     public void addVarDefDansInnerBoucle(String  innerVar) {
         if (!varDefDansInnerBoucle.contains(innerVar)) {
             this.varDefDansInnerBoucle.add(innerVar);
         }
 
+    }
+    public void addInnerVarDefinition(List<String>  innerVar){
+        for(String variable : innerVar) {
+            if(!innerVarDefinitions.contains(variable)) {
+                this.innerVarDefinitions.add(variable);
+            }
+        }
+    }
+
+
+    public void addInnerVarDefinition(String  innerVar) {
+        if (!innerVarDefinitions.contains(innerVar)) {
+            this.innerVarDefinitions.add(innerVar);
+        }
+
+    }
+
+    public List<String> getInnerVarDefinition(){
+        return innerVarDefinitions;
     }
 }

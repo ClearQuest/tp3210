@@ -27,16 +27,25 @@ public class ForStmtVisitor implements ParserVisitor {
         /* First node: Start symbol */
         assignNumber(node);
 
-        //ForLoopInformation info = new ForLoopInformation();
-        //info.setNivImbrication(0);
-       // data = info;
         node.childrenAccept(this, data);
+
+        //MODIFICATIONS
+        for (int i = 0; i < this.forLoopInformationList.size(); i++) {
+            ForLoopInformation current = forLoopInformationList.get(i);
+            if(current.getVarDefDansInnerBoucle() != null) {
+                current.addAutreVarLocDsBoucle(current.getVarDefDansInnerBoucle());
+            }
+
+            current.getVarRequiseParBoucle().remove(current.getVarlocaleAssigneeParBoucle());
+            current.getVarRequiseParBoucle().add(current.getTableauParcouru());
+            current.getVarRequiseParBoucle().remove(current.getAutresVarLocDsBoucle());
+
+        }
+
+        //PRINT
 
         for (int i = 0; i < this.forLoopInformationList.size(); i++) {
             String forLoopResult = new String();
-            if(forLoopInformationList.get(i).getVarDefDansInnerBoucle() != null) {
-                forLoopInformationList.get(i).addAutreVarLocDsBoucle(forLoopInformationList.get(i).getVarDefDansInnerBoucle());
-            }
             forLoopResult = forLoopInformationList.get(i).getAllInformationPrintable();
             m_writer.println(forLoopResult);
         }
@@ -85,13 +94,17 @@ public class ForStmtVisitor implements ParserVisitor {
                     node.information.addVarRedefDansBoucle(element);
                 }
             }
-
+            //grandDad.information.addInnerVarDefinition(node.information.getVarRedefDansBoucle());
+            grandDad.information.addVarRedefDansBoucle(node.information.getVarRedefDansBoucle());
+           // grandDad.information.getVarRedefDansBoucle().remove(node.information.getVarRedefDansBoucle());
 
             //retire superflu de variables locales
             for (String variable: node.information.getVarGlobalesAvantBoucle()) {
                 node.information.getAutresVarLocDsBoucle().remove(variable);
             }
             node.information.getAutresVarLocDsBoucle().remove(node.information.getVarlocaleAssigneeParBoucle());
+
+
             //variables dans boucles imbriquées
             grandDad.information.addVarDefDansInnerBoucle(node.information.getAutresVarLocDsBoucle());
             grandDad.information.addVarDefDansInnerBoucle(node.information.getVarDefDansInnerBoucle());
@@ -249,7 +262,10 @@ public class ForStmtVisitor implements ParserVisitor {
     public Object visit(ASTArrayBasicExpr node, Object data) {
         assignNumber(node);
 
-        node.childrenAccept(this, data);
+        Object identifier = node.childrenAccept(this, data);
+        if(data instanceof ForLoopInformation && identifier instanceof  String) {
+            ((ForLoopInformation) data).addAutreVarLocDsBoucle((String) identifier);
+        }
         return data;
     }
 
@@ -277,17 +293,24 @@ public class ForStmtVisitor implements ParserVisitor {
          if (node.jjtGetParent().getClass() != ASTFctStmt.class && ! (node.jjtGetParent().getClass() == ASTForStmt.class) && node.jjtGetParent().getClass() == ASTArrayBasicExpr.class) {
             if (node.jjtGetParent().jjtGetParent().jjtGetParent().jjtGetParent().jjtGetParent().getClass() == ASTForStmt.class) {
                 String tableId = node.getValue().toString(); //parsed table name
-                ((ForLoopInformation)data).setTableauParcouru( tableId);
+                ((ForLoopInformation)data).setTableauParcouru(tableId);
+                return null;
             }
+
         }
 
+             node.childrenAccept(this, data);
+             identifier = node.getValue().toString();
+
+             if (data instanceof ForLoopInformation && !(node.jjtGetParent() instanceof ASTFctStmt)) {
+                 // for(int i = 0;i<node.jjtGetNumChildren();i++) {
+                 ((ForLoopInformation) data).addVarRequiseParBoucle(identifier);
+                 // }
+             }
 
 
-        node.childrenAccept(this, data);
-        identifier = node.getValue().toString();
+             return identifier;
 
-
-        return identifier;
     }
 
     @Override
