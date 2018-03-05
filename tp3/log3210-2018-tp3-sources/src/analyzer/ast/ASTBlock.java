@@ -2,20 +2,23 @@
 /* JavaCCOptions:MULTI=true,NODE_USES_PARSER=false,VISITOR=true,TRACK_TOKENS=false,NODE_PREFIX=AST,NODE_EXTENDS=,NODE_FACTORY=,SUPPORT_CLASS_VISIBILITY_PUBLIC=true */
 package analyzer.ast;
 
+import analyzer.visitors.ForLoopInformation;
+
 public
 class ASTBlock extends SimpleNode {
   public ASTBlock(int id) {
     super(id);
+      information = new ForLoopInformation();
   }
 
   public ASTBlock(Parser p, int id) {
     super(p, id);
+    information = new ForLoopInformation();
   }
 
-
+  public ForLoopInformation information;
   /** Accept the visitor. **/
   public Object jjtAccept(ParserVisitor visitor, Object data) {
-
     return
     visitor.visit(this, data);
   }

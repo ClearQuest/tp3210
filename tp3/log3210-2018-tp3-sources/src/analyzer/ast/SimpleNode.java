@@ -60,12 +60,18 @@ class SimpleNode implements Node {
   /** Accept the visitor. **/
   public Object childrenAccept(ParserVisitor visitor, Object data)
 {
+  Object bob = null;
     if (children != null) {
       for (int i = 0; i < children.length; ++i) {
-        children[i].jjtAccept(visitor, data);
+        if(children[i] instanceof ASTIdentifier || children[i] instanceof ASTIntAssignStmt|| children[i] instanceof ASTFloatAssignStmt|| children[i] instanceof ASTStmt || children[i] instanceof  ASTArrayAssignStmt ) {
+          bob = children[i].jjtAccept(visitor, data);
+        }
+
+        else
+          children[i].jjtAccept(visitor, data);
       }
     }
-    return data;
+    return bob;
   }
 
   /* You can override these two methods in subclasses of SimpleNode to

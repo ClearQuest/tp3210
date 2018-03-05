@@ -9,25 +9,28 @@ import java.util.List;
 public class ForLoopInformation {
 
     /* Proprierties to print (In order) */
-    int nivImbrication;                             // #1: Le niveau d’imbrication de la boucle
-    String tableauParcouru;                         // #2: Le tableau parcouru
-    ArrayList<String> varGlobalesAvantBoucle;       // #3: Les variables globales définies avant la boucle
-    String varlocaleAssigneeParBoucle;              // #4: La variable locale assignée par la boucle
-    ArrayList<String> autresVarLocDsBoucle;         // #5: Les autres variables locales définies dans la boucle
-    ArrayList<String> varRedefDansBoucle;           // #6: Les variables redéfinies par la boucle (sauf locales)
-    ArrayList<String> varRequiseParBoucle;          // #7: Les variables requises par la boucle (sauf locales)
-    boolean isTailleTableauModified;                // #8: Un booléen indiquant si la taille du tableau parcouru est modifiée pendant la boucle
-    boolean isVarLocDefinedDansBoucle;              // #9: Un booléen indiquant si la variable locale a déjà été définie en dehors de la boucle
+    private int nivImbrication;                             // #1: Le niveau d’imbrication de la boucle
+    private String tableauParcouru;                         // #2: Le tableau parcouru
+    private ArrayList<String> varGlobalesAvantBoucle;       // #3: Les variables globales définies avant la boucle
+    private String varlocaleAssigneeParBoucle;              // #4: La variable locale assignée par la boucle
+    private ArrayList<String> autresVarLocDsBoucle;         // #5: Les autres variables locales définies dans la boucle
+    private ArrayList<String> varRedefDansBoucle;           // #6: Les variables redéfinies par la boucle (sauf locales)
+    private ArrayList<String> varRequiseParBoucle;          // #7: Les variables requises par la boucle (sauf locales)
+    private boolean isTailleTableauModified;                // #8: Un booléen indiquant si la taille du tableau parcouru est modifiée pendant la boucle
+    private boolean isVarLocDefinedDansBoucle;              // #9: Un booléen indiquant si la variable locale a déjà été définie en dehors de la boucle
+    private ArrayList<String> varDefDansInnerBoucle;
+    private ForLoopInformation parentInfo;
 
     /* Constructors */
     public ForLoopInformation() {
-        this.nivImbrication = 1;
+        this.nivImbrication = 0;
         this.tableauParcouru = "";
         this.varGlobalesAvantBoucle = new ArrayList<String>();
         this.varlocaleAssigneeParBoucle = "";
         this.autresVarLocDsBoucle = new ArrayList<String>();
         this.varRedefDansBoucle = new ArrayList<String>();
         this.varRequiseParBoucle = new ArrayList<String>();
+        this.varDefDansInnerBoucle = new ArrayList<String>();
         this.isTailleTableauModified = false;
         this.isVarLocDefinedDansBoucle = false;
         this.verifierIsVarLocDefinedDansBoucle();
@@ -104,7 +107,14 @@ public class ForLoopInformation {
     public void setIsTailleTableauModif(boolean isTabModif){ this.isTailleTableauModified = isTabModif; }
     public void setIsVarLocDefDansBoucle(boolean isVarLocDef){ this.isVarLocDefinedDansBoucle = isVarLocDef; }
     public void setIsVarLocDefDansBoucle(String varLocale) { this.isVarLocDefinedDansBoucle = this.varGlobalesAvantBoucle.contains(varLocale); }
+    public void setParentInfo(ForLoopInformation parent){
+        this.parentInfo.autresVarLocDsBoucle = parent.autresVarLocDsBoucle;
+        this.parentInfo.isTailleTableauModified = parent.isTailleTableauModified;
+        this.parentInfo.isVarLocDefinedDansBoucle = parent.isVarLocDefinedDansBoucle;
+        this.parentInfo.nivImbrication = parent.nivImbrication;
+        this.parentInfo.varGlobalesAvantBoucle = parent.varGlobalesAvantBoucle;
 
+    }
     /* Accessors */
     public int getNivImbrication() { return this.nivImbrication; }
     public  String getTableauParcouru() { return this.tableauParcouru; }
@@ -117,25 +127,72 @@ public class ForLoopInformation {
     public boolean getIsVarLocDefinedDansBoucle() { return this.isVarLocDefinedDansBoucle; }
 
     /* Add an element or a list of elements in any ArrayLyst parameters */
-    public void addVarGlobalesAvantBoucles(String varGlobale){ this.varGlobalesAvantBoucle.add(varGlobale); }
-    public void addVarGlobalesAvantBoucles(List<String> varGlobales){ this.varGlobalesAvantBoucle.addAll(varGlobales); }
+    public void addVarGlobalesAvantBoucles(String varGlobale){
+        if(!this.varGlobalesAvantBoucle.contains(varGlobale)) {
+            this.varGlobalesAvantBoucle.add(varGlobale);
+        }
+    }
+    public void addVarGlobalesAvantBoucles(List<String> varGlobales){
+
+        for (String variable: varGlobales) {
+            if(!this.varGlobalesAvantBoucle.contains(variable)) {
+                this.varGlobalesAvantBoucle.add(variable);
+            }
+        }
+
+    }
     public void removeVarGlobalesAvantBoucles() { this.varGlobalesAvantBoucle.clear(); }
+
     public void addAutreVarLocDsBoucle(String varLocale){
-        this.autresVarLocDsBoucle.add(varLocale);
+        if(!this.autresVarLocDsBoucle.contains(varLocale)) {
+            this.autresVarLocDsBoucle.add(varLocale);
+        }
     }
     public void addAutreVarLocDsBoucle(List<String> varLocales){
-        this.autresVarLocDsBoucle.addAll(varLocales);
+       for(String variable : varLocales) {
+           if(!this.autresVarLocDsBoucle.contains(variable)) {
+               this.autresVarLocDsBoucle.add(variable);
+           }
+       }
     }
     public void addVarRedefDansBoucle(String varRedefinie){
-        this.varRedefDansBoucle.add(varRedefinie);
+        if(!this.varRedefDansBoucle.contains(varRedefinie)) {
+            this.varRedefDansBoucle.add(varRedefinie);
+        }
     }
     public void addVarRedefDansBoucle(List<String> varRedefinies){
-        this.varRedefDansBoucle.addAll(varRedefinies);
+        for(String variable : varRedefinies) {
+            if(!this.varRedefDansBoucle.contains(variable)) {
+                this.varRedefDansBoucle.add(variable);
+            }
+        }
     }
     public void addVarRequiseParBoucle(String varRequise){
-        this.varRequiseParBoucle.add(varRequise);
+        if(!this.varRequiseParBoucle.contains(varRequise)) {
+            this.varRequiseParBoucle.add(varRequise);
+        }
     }
     public void addVarRequiseParBoucle(List<String>  varRequises){
-        this.varRequiseParBoucle.addAll(varRequises);
+        for(String variable : varRequises) {
+            if(!varRequiseParBoucle.contains(variable)) {
+                this.varRequiseParBoucle.add(variable);
+            }
+        }
+    }
+    public void addVarDefDansInnerBoucle(List<String>  innerVar){
+        for(String variable : innerVar) {
+            if(!varDefDansInnerBoucle.contains(variable)) {
+                this.varDefDansInnerBoucle.add(variable);
+            }
+        }
+    }
+    public List<String> getVarDefDansInnerBoucle(){
+        return varDefDansInnerBoucle;
+    }
+    public void addVarDefDansInnerBoucle(String  innerVar) {
+        if (!varDefDansInnerBoucle.contains(innerVar)) {
+            this.varDefDansInnerBoucle.add(innerVar);
+        }
+
     }
 }

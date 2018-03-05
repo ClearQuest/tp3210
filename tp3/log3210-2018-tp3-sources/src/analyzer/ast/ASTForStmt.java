@@ -19,6 +19,9 @@ class ASTForStmt extends SimpleNode {
     public ASTForStmt(Parser p, int id) {
     super(p, id);
   }
+    public ASTBlock getParentBlock(){
+        return (ASTBlock)jjtGetParent().jjtGetParent();
+    }
 
     /** Accept the visitor. **/
     public Object jjtAccept(ParserVisitor visitor, Object data) { return visitor.visit(this, data); }
