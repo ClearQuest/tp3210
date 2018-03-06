@@ -1,0 +1,5 @@
+FOR : 1, t, [t,u], e, [s,d,i], [u,t], [t,u], True, False;
+FOR : 2, t, [s,t,u,e], e, [d,i], [u], [t,u,s], False, True;
+FOR : 3, u, [d,s,t,u,e], f, [i], [u], [u,s], False, False;
+FOR : 1, t2, [t,u,t2,a,b,f], f, [], [b,a,t2], [b,a,t2], False, True;
+FOR : 1, t2, [t,u,t2,a,b,f], e, [], [], [t2], False, False;
