@@ -10,12 +10,12 @@ public class ForStmtVisitor implements ParserVisitor {
     private final PrintWriter m_writer;
     private int m_currentNumber = 0;
     private ArrayList<ForLoopInformation> forLoopInformationList;
-   // private ArrayList<String> listeVariablesGlobales;
+
 
     public ForStmtVisitor(PrintWriter writer) {
         this.m_writer = writer;
         this.forLoopInformationList = new ArrayList<>();
-        //his.listeVariablesGlobales = new ArrayList<>();
+
     }
 
     /* Every nodes */
@@ -32,13 +32,22 @@ public class ForStmtVisitor implements ParserVisitor {
         //MODIFICATIONS
         for (int i = 0; i < this.forLoopInformationList.size(); i++) {
             ForLoopInformation current = forLoopInformationList.get(i);
+            //set autres variables locales définie dans des boucles internes
             if(current.getVarDefDansInnerBoucle() != null) {
                 current.addAutreVarLocDsBoucle(current.getVarDefDansInnerBoucle());
             }
+            //change variable de aparcour par nom du tableau dans les variables redefinies si c'est le cas
+
+            if(current.getVarRedefDansBoucle().contains(current.getVarlocaleAssigneeParBoucle())){
+                current.getVarRedefDansBoucle().remove(current.getVarlocaleAssigneeParBoucle());
+                current.addVarRedefDansBoucle(current.getTableauParcouru());
+            }
 
             current.getVarRequiseParBoucle().remove(current.getVarlocaleAssigneeParBoucle());
-            current.getVarRequiseParBoucle().add(current.getTableauParcouru());
-            current.getVarRequiseParBoucle().remove(current.getAutresVarLocDsBoucle());
+
+            current.getVarRequiseParBoucle().removeAll(current.getAutresVarLocDsBoucle());
+            current.addVarRequiseParBoucle(current.getTableauParcouru());
+            current.getVarRequiseParBoucle().removeAll(current.getNomTableauImbriques());
 
         }
 
@@ -83,9 +92,6 @@ public class ForStmtVisitor implements ParserVisitor {
 
             node.information.setTableauParcouru(grandDad.information.getTableauParcouru());
 
-
-
-
             //variables redefinies
             for(String element : node.information.getAutresVarLocDsBoucle()){
                 if(node.information.getVarGlobalesAvantBoucle().contains(element)
@@ -94,9 +100,8 @@ public class ForStmtVisitor implements ParserVisitor {
                     node.information.addVarRedefDansBoucle(element);
                 }
             }
-            //grandDad.information.addInnerVarDefinition(node.information.getVarRedefDansBoucle());
+
             grandDad.information.addVarRedefDansBoucle(node.information.getVarRedefDansBoucle());
-           // grandDad.information.getVarRedefDansBoucle().remove(node.information.getVarRedefDansBoucle());
 
             //retire superflu de variables locales
             for (String variable: node.information.getVarGlobalesAvantBoucle()) {
@@ -104,11 +109,21 @@ public class ForStmtVisitor implements ParserVisitor {
             }
             node.information.getAutresVarLocDsBoucle().remove(node.information.getVarlocaleAssigneeParBoucle());
 
-
-            //variables dans boucles imbriquées
+            //variables dans boucles imbriquées. utilisées pour setter les variables locales
             grandDad.information.addVarDefDansInnerBoucle(node.information.getAutresVarLocDsBoucle());
             grandDad.information.addVarDefDansInnerBoucle(node.information.getVarDefDansInnerBoucle());
 
+            //Variable requises
+            ArrayList<String> tempGranddadVarRequises = new ArrayList<String>();
+            tempGranddadVarRequises.addAll(node.information.getVarRequiseParBoucle());
+            tempGranddadVarRequises.remove(node.information.getVarlocaleAssigneeParBoucle());
+            grandDad.information.addVarRequiseParBoucle(tempGranddadVarRequises);
+            node.information.addNomTableauImbriques(node.information.getVarlocaleAssigneeParBoucle());
+            grandDad.information.addNomTableauImbriques(node.information.getNomTableauImbriques());
+
+            if(node.information.getListTableauxModifiés().contains(node.information.getTableauParcouru())){
+                node.information.setIsTailleTableauModif(true);
+            }
 
         }
 
@@ -141,6 +156,7 @@ public class ForStmtVisitor implements ParserVisitor {
         assignNumber(node);
 
         Object identifier = node.childrenAccept(this, data);
+       // arraybasicExpr doesnt bubble up ok  if(node.jjtGetChild())
         return identifier;
     }
 
@@ -149,6 +165,11 @@ public class ForStmtVisitor implements ParserVisitor {
         assignNumber(node);
 
         Object identifier = node.childrenAccept(this, data);
+        if(data instanceof ForLoopInformation && identifier instanceof String){
+            if(node.jjtGetParent().jjtGetParent() instanceof ASTBlock){
+                ((ASTBlock)node.jjtGetParent().jjtGetParent()).information.addListTableauxModifies((String)identifier);
+            }
+        }
         return identifier;
     }
 
@@ -264,9 +285,13 @@ public class ForStmtVisitor implements ParserVisitor {
 
         Object identifier = node.childrenAccept(this, data);
         if(data instanceof ForLoopInformation && identifier instanceof  String) {
-            ((ForLoopInformation) data).addAutreVarLocDsBoucle((String) identifier);
+            if (node.jjtGetParent().jjtGetParent().jjtGetParent().jjtGetParent() instanceof ASTBlock) {
+                ASTBlock parentBlock = (ASTBlock) node.jjtGetParent().jjtGetParent().jjtGetParent().jjtGetParent();
+                parentBlock.information.addAutreVarLocDsBoucle((String) identifier);
+            }
         }
-        return data;
+        //return data;
+        return identifier;
     }
 
     @Override
@@ -304,7 +329,8 @@ public class ForStmtVisitor implements ParserVisitor {
 
              if (data instanceof ForLoopInformation && !(node.jjtGetParent() instanceof ASTFctStmt)) {
                  // for(int i = 0;i<node.jjtGetNumChildren();i++) {
-                 ((ForLoopInformation) data).addVarRequiseParBoucle(identifier);
+                 ((ForLoopInformation)data).addVarRequiseParBoucle(identifier);//add var req to parent instead
+
                  // }
              }
 

@@ -21,6 +21,8 @@ public class ForLoopInformation {
     private ArrayList<String> varDefDansInnerBoucle;
     private ForLoopInformation parentInfo;
     private ArrayList<String> innerVarDefinitions;
+    private ArrayList<String> nomTableauImbriques;
+    private ArrayList<String> listeTableauxModifies;
 
     /* Constructors */
     public ForLoopInformation() {
@@ -36,6 +38,8 @@ public class ForLoopInformation {
         this.isVarLocDefinedDansBoucle = false;
         this.verifierIsVarLocDefinedDansBoucle();
         this.innerVarDefinitions = new ArrayList<String>();
+        this.nomTableauImbriques = new ArrayList<String>();
+        this.listeTableauxModifies = new ArrayList<String>();
     }
     public ForLoopInformation(ForLoopInformation info) {
         this.nivImbrication = info.nivImbrication;
@@ -49,10 +53,13 @@ public class ForLoopInformation {
         this.isVarLocDefinedDansBoucle = info.isVarLocDefinedDansBoucle;
         this.verifierIsVarLocDefinedDansBoucle();
         this.innerVarDefinitions =  new ArrayList<String>();
+        this.nomTableauImbriques = new ArrayList<String>();
+        this.listeTableauxModifies = new ArrayList<String>();
     }
 
     /* Print the results */
     public String getAllInformationPrintable() {
+        verifierIsVarLocDefinedDansBoucle();
         String var1 = Integer.toString(this.nivImbrication);
         String var2 = this.tableauParcouru;
         String var3 = arrayListToString(this.varGlobalesAvantBoucle);
@@ -102,9 +109,7 @@ public class ForLoopInformation {
     public void setNivImbrication(int niveau) {
         this.nivImbrication = niveau;
     }
-    public void incrementNiveauImbrication() {
-        this.nivImbrication++;
-    }
+
     public void setTableauParcouru(String tableName){ this.tableauParcouru = tableName; }
     public void setVarLocaleAssigneParBoucle(String varLocale){ this.varlocaleAssigneeParBoucle = varLocale; }
     public void setIsTailleTableauModif(boolean isTabModif){ this.isTailleTableauModified = isTabModif; }
@@ -126,8 +131,13 @@ public class ForLoopInformation {
     public ArrayList<String> getAutresVarLocDsBoucle() { return this.autresVarLocDsBoucle; }
     public ArrayList<String> getVarRedefDansBoucle() { return this.varRedefDansBoucle; }
     public ArrayList<String> getVarRequiseParBoucle() { return this.varRequiseParBoucle; }
+    public ArrayList<String> getNomTableauImbriques(){ return this.nomTableauImbriques; }
+    public List<String> getVarDefDansInnerBoucle(){ return varDefDansInnerBoucle; }
+    public List<String> getListTableauxModifiés(){ return listeTableauxModifies; }
+    public List<String> getInnerVarDefinition(){ return innerVarDefinitions; }
     public boolean getIsTailleTableauModified() { return this.isTailleTableauModified; }
     public boolean getIsVarLocDefinedDansBoucle() { return this.isVarLocDefinedDansBoucle; }
+
 
     /* Add an element or a list of elements in any ArrayLyst parameters */
     public void addVarGlobalesAvantBoucles(String varGlobale){
@@ -189,9 +199,7 @@ public class ForLoopInformation {
             }
         }
     }
-    public List<String> getVarDefDansInnerBoucle(){
-        return varDefDansInnerBoucle;
-    }
+
 
 
 
@@ -216,8 +224,33 @@ public class ForLoopInformation {
         }
 
     }
-
-    public List<String> getInnerVarDefinition(){
-        return innerVarDefinitions;
+    public void addNomTableauImbriques(String  nomTableau){
+        if(!this.nomTableauImbriques.contains(nomTableau)){
+            this.nomTableauImbriques.add(nomTableau);
+        }
     }
+
+    public void addNomTableauImbriques(List<String> nomsTableaux){
+        for(String nomTableau : nomsTableaux) {
+            if(!this.nomTableauImbriques.contains(nomTableau)){
+                this.nomTableauImbriques.add(nomTableau);
+            }
+        }
+    }
+    public void addListTableauxModifies(String tableauModifie){
+        if(!this.listeTableauxModifies.contains(tableauModifie)){
+            this.listeTableauxModifies.add(tableauModifie);
+        }
+    }
+
+    public void addListTableauxModifies(List<String> tableauxModifies){
+        for(String tableauModifie : tableauxModifies){
+            if(!this.listeTableauxModifies.contains(tableauModifie)) {
+                this.listeTableauxModifies.add(tableauModifie);
+            }
+        }
+
+
+    }
+
 }

@@ -63,9 +63,13 @@ class SimpleNode implements Node {
   Object bob = null;
     if (children != null) {
       for (int i = 0; i < children.length; ++i) {
-        if(children[i] instanceof ASTIdentifier || children[i] instanceof ASTIntAssignStmt|| children[i] instanceof ASTFloatAssignStmt|| children[i] instanceof ASTStmt || children[i] instanceof  ASTArrayAssignStmt ) {
-          bob = children[i].jjtAccept(visitor, data);
-        }
+        //if (i == 0){
+          if(/* i == 0 &&*/(children[i] instanceof ASTIdentifier || children[i] instanceof ASTArrayBasicExpr ||
+                  children[i] instanceof ASTIntAssignStmt|| children[i] instanceof ASTFloatAssignStmt||
+                  children[i] instanceof ASTStmt || children[i] instanceof  ASTArrayAssignStmt) ) {
+            bob = children[i].jjtAccept(visitor, data);
+          }
+
 
         else
           children[i].jjtAccept(visitor, data);
